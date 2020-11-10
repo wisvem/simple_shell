@@ -1,3 +1,5 @@
+![](https://imgur.com/tBYOSbs.png)
+
 # Simple Shell
 - Simple shell project
 ## Contributors
