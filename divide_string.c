@@ -2,14 +2,14 @@
 
 char **divide_string(char *str)
 {
-	char *token, *token2;
-	char *str2 = _strdup(str);
+	char *token, *token2, *str2;
 	int words = 0, i = 0;
 	char **wordarray;
 
+	str2 = _strdup(str);
 	token = strtok(str, " ");
 
-	while( token != NULL )
+	while(token != NULL)
 	{
 		token = strtok(NULL, " ");
 		words++;
@@ -25,6 +25,7 @@ char **divide_string(char *str)
 		token2 = strtok(NULL, " ");
 		i++;
 	}
+	wordarray[i] = NULL;
 	free(str2);
 	return (wordarray);
 }

@@ -14,8 +14,11 @@ int main(void)
 	size_t len = 0;
 
 	printf("$ ");
-	getline(&buff, &len, stdin);
-	printf("%s", buff);
+	while (getline(&buff, &len, stdin) != -1)
+	{
+		printf("%s", buff);
+		printf("$ ");
+	}
 	free(buff);
 	return (0);
 }
