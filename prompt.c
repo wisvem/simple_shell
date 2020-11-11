@@ -19,6 +19,7 @@ int main(void)
 		printf("%s", buff);
 		printf("$ ");
 	}
+	printf("\n");
 	free(buff);
 	return (0);
 }
