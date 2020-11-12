@@ -12,6 +12,7 @@ int main(int argc, char *argv[])
 		free(stream[i]);
 		i++;
 	}
+	execve(stream[0], " ");
 	free(stream);
 	return (0);
 }
