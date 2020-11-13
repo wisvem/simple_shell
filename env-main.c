@@ -5,14 +5,14 @@
  *
  * Return: Always 0.
  */
-int main(int ac, char **av, char **env)
+int main(int ac, char **av, char **environ)
 {
 	unsigned int i;
 
 	i = 0;
-	while (env[i] != NULL)
+	while (environ[i] != NULL)
 	{
-		printf("%s\n", env[i]);
+		printf("%s\n", environ[i]);
 		i++;
 	}
 	return (0);
