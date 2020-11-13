@@ -1,7 +1,7 @@
 #include "awshell.h"
 /**
-* _strlen - calculate lenght of a string
-* @s: char vector
+* _strlen - calculates lenght of a string
+* @s: char array
 * Return: the lenght of @s
 **/
 int _strlen(char *s)
@@ -15,6 +15,12 @@ int _strlen(char *s)
 	return (i);
 }
 
+/**
+ * divide_string - separates strings into words
+ * @str: string to divide
+ * Return: pointers to each word on the array
+ */
+
 char **divide_string(char *str)
 {
 	char *token, *token2, *str2;
@@ -24,7 +30,7 @@ char **divide_string(char *str)
 	str2 = _strdup(str);
 	token = strtok(str, " ");
 
-	while(token != NULL)
+	while (token)
 	{
 		token = strtok(NULL, " ");
 		words++;
@@ -33,7 +39,6 @@ char **divide_string(char *str)
 	token2 = strtok(str2, " ");
 
 	wordarray = malloc(sizeof(char *) * (words + 1));
-	
 	while (token2 != NULL)
 	{
 		wordarray[i] = _strdup(token2);
@@ -45,10 +50,14 @@ char **divide_string(char *str)
 	return (wordarray);
 }
 
+/**
+ * exec - executes applications
+ * @argv: arguments to execute
+ * Return: 0 on success
+ */
+
 int exec(char **argv)
 {
-
-	//char *argv[] = {"/bin/ls"};
 
 	pid_t child_pid;
 	int child_status, i = 0;
@@ -63,22 +72,22 @@ int exec(char **argv)
 	else if (child_pid < 0)
 	{
 		perror("Falied to fork\n");
-		return(-1);
+		return (-1);
 	}
 	else
 	{
 		wait(&child_status);
 	}
-	dad_pid = getppid();;
-	while(argv[i])
+	dad_pid = getppid();
+	while (argv[i])
 		free(argv[i]), i++;
 	free(argv);
 	return (0);
 }
 
 /**
- * main - prints "$ ", wait for the user to enter a command,
- * prints it on the next line
+ * main - prints "aw$ ", wait for the user to enter a command,
+ * to execute different programs.
  * Return: Always 0
  */
 
@@ -88,12 +97,12 @@ int main(void)
 	size_t len = 0;
 	size_t x = 0;
 
-	write(STDOUT, "PROMPT$: ", 9);
+	write(STDOUT, "aw$: ", 9);
 	while ((x = getline(&buff, &len, stdin)) != -1)
 	{
 		buff[x - 1] = '\0';
 		exec(divide_string(buff));
-		write(STDOUT, "PROMPT$: ", 9);
+		write(STDOUT, "aw$: ", 9);
 	}
 	write(STDOUT, "\n", 1);
 	free(buff);
