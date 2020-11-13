@@ -50,8 +50,12 @@ int exec(char **argv)
 	child_pid = fork();
 	if (child_pid == 0)
 	{
-		execve(argv[0], argv, NULL);
-		exit(EXIT_FAILURE);
+		if ((execve(argv[0], argv, NULL) == -1) && argv[0] != NULL)
+		{
+			printf("%s: command not found\n", argv[0]);
+			exit(EXIT_FAILURE);
+		
+		}
 	}
 	else if (child_pid < 0)
 	{
@@ -74,11 +78,12 @@ int exec(char **argv)
  * Return: Always 0
  */
 
-int main(void)
+int main(int argc, char **argv)
 {
 	char *buff = NULL;
 	size_t len = 0;
 	int x = 0;
+	(void)argc, (void)argv;
 
 	write(STDOUT, "aw$: ", 5);
 	while ((x = getline(&buff, &len, stdin)) != -1)
