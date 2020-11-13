@@ -69,8 +69,7 @@ int exec(char **argv)
 	{
 		wait(&child_status);
 	}
-	dad_pid = getppid();
-	i = 0;
+	dad_pid = getppid();;
 	while(argv[i])
 		free(argv[i]), i++;
 	free(argv);
