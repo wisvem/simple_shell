@@ -70,7 +70,10 @@ int exec(char **argv)
 		wait(&child_status);
 	}
 	dad_pid = getppid();
-//	printf("Padre: %u e hijo: %u\n", dad_pid, child_pid);
+	i = 0;
+	while(argv[i])
+		free(argv[i]), i++;
+	free(argv);
 	return (0);
 }
 
