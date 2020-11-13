@@ -49,4 +49,4 @@ $ ls -al
 
 ## Authors
 [Andres Lopez](https://github.com/andylopezr)-profesor.de.ingles@aol.com
-[Wiston Venera](http://github.com/wisvem)-
+[Wiston Venera](http://github.com/wisvem)-wisvem@hotmail.com
