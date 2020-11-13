@@ -51,25 +51,9 @@ int exec(char **argv)
 	//char *argv[] = {"/bin/ls"};
 
 	pid_t child_pid;
-	int child_status, i = 0, j = 0;
+	int child_status, i = 0;
 	pid_t dad_pid;
 
-/*
-*	for (i = 0; argv[i] != NULL; i++)
-*	{
-*
-* printf("# Argument: %i: String:  %s\n", i, argv[i]);
-*		while (argv[i][j])
-*		{
-*			j++;
-*		}
-*		printf("Size: %d\n", j);
-*		j = 0;
-*	}
-*	
-*	printf("# Argument: %i: String:  %s\n", i, argv[i]);
-*/	
-	i = 0;
 	child_pid = fork();
 	if (child_pid == 0)
 	{
