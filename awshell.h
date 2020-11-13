@@ -1,6 +1,7 @@
 #ifndef AWSHELL_H
 #define AWSHELL_H
 
+#include "_printf.a"
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
