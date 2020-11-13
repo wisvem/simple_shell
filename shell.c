@@ -1,19 +1,4 @@
 #include "awshell.h"
-/**
-* _strlen - calculates lenght of a string
-* @s: char array
-* Return: the lenght of @s
-**/
-int _strlen(char *s)
-{
-	int i = 0;
-
-	while (s[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
-}
 
 /**
  * divide_string - separates strings into words
@@ -61,7 +46,6 @@ int exec(char **argv)
 
 	pid_t child_pid;
 	int child_status, i = 0;
-	pid_t dad_pid;
 
 	child_pid = fork();
 	if (child_pid == 0)
@@ -78,7 +62,6 @@ int exec(char **argv)
 	{
 		wait(&child_status);
 	}
-	dad_pid = getppid();
 	while (argv[i])
 		free(argv[i]), i++;
 	free(argv);
@@ -95,14 +78,14 @@ int main(void)
 {
 	char *buff = NULL;
 	size_t len = 0;
-	size_t x = 0;
+	int x = 0;
 
-	write(STDOUT, "aw$: ", 9);
+	write(STDOUT, "aw$: ", 5);
 	while ((x = getline(&buff, &len, stdin)) != -1)
 	{
 		buff[x - 1] = '\0';
 		exec(divide_string(buff));
-		write(STDOUT, "aw$: ", 9);
+		write(STDOUT, "aw$: ", 5);
 	}
 	write(STDOUT, "\n", 1);
 	free(buff);
