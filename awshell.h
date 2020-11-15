@@ -25,12 +25,15 @@ typedef struct path_list
 	struct path_list *next;
 } p_list;
 
+/*string manipulationfunctions*/
 char *_strdup(char *str);
 char **split_str(char *str, char *delim);
-int exec(char **argv);
-int get_env(char *av);
+char *_strchr(char *s, char c);
 
-/*List's functions*/
+int exec(char **argv);
+char *get_env(char *str);
+
+/*List manipulation functions*/
 void free_list(p_list *head);
 p_list *add_list(p_list **head, const char *str);
 #endif /* AWSHELL */
