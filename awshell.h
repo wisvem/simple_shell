@@ -17,6 +17,13 @@
 #define STDIN STDIN_FILENO
 /*End of shorten*/
 
+/* Path structure*/
+typedef struct path_list
+{
+	char *path;
+	struct next;
+} p_list;
+
 char *_strdup(char *str);
 char **split_str(char *str, char *delim);
 int exec(char **argv);
