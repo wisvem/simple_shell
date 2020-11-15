@@ -1,7 +1,13 @@
 #include "awshell.h"
 
-int main(void)
+
+int main(int ac, char **av)
 {
-	get_env("PATH");
+	if (ac != 2)
+	{
+		printf("This function only accepts one argument\n");
+		return (0);
+	}
+	printf("%s\n", get_env(av[1]));
 	return(0);
 }
