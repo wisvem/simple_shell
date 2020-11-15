@@ -18,14 +18,19 @@
 /*End of shorten*/
 
 /* Path structure*/
+
 typedef struct path_list
 {
-	char *path;
-	struct next;
+	char *str;
+	struct path_list *next;
 } p_list;
 
 char *_strdup(char *str);
 char **split_str(char *str, char *delim);
 int exec(char **argv);
 int get_env(char *av);
+
+/*List's functions*/
+void free_list(p_list *head);
+p_list *add_list(p_list **head, const char *str);
 #endif /* AWSHELL */

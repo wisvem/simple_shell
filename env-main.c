@@ -24,6 +24,6 @@ int main(int ac, char **av, char **env)
 		printf("---\n%s\n---\n", environ[i]);
 		i++;
 	}
-	printf("PATH : %s\n", getenv("PATH"));
+	printf("LS_COLORS : %s\n", getenv("LS_COLORS"));
 	return (0);
 }
