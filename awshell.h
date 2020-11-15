@@ -18,6 +18,7 @@
 /*End of shorten*/
 
 char *_strdup(char *str);
-char **divide_string(char *str);
-int _strlen(char *s);
+char **split_str(char *str, char *delim);
+int exec(char **argv);
+int get_env(char *av);
 #endif /* AWSHELL */

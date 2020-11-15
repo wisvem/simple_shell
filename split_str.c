@@ -7,7 +7,7 @@
  * Return: pointers to each word on the array
  */
 
-char **split_str(char *str, char delim)
+char **split_str(char *str, char *delim)
 {
 	char *token, *token2, *str2;
 	int words = 0, i = 0;
