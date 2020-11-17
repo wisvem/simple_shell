@@ -17,10 +17,10 @@ Done and tested with VirtualBox on Ubuntu via Vagrant(2.2.10)
 ### Main Functionality
 - [ ] uses the PATH
 - [ ] implements builtins
-- [ ] handles command line arguments
+- [X] handles command line arguments
 - [ ] custom strtok function
 - [ ] uses exit status
-- [ ] shell continues upon Crtl+C (**^C**)
+- [X] shell continues upon Crtl+C (**^C**)
 - [ ] handles comments (#)
 - [ ] handles **;**
 - [ ] custom getline type function
@@ -44,7 +44,7 @@ Run the executable file in terminal after compiling:
 ```
 $ ./hsh
 $ # Start of our custom `simple_shell`
-$ ls -al
+$ ls -la
 ```
 
 ## Authors
