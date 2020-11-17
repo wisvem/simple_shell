@@ -1,10 +1,22 @@
 #include "awshell.h"
 
 /**
-* get_env - get the environment
-* @str: string where the enviroment is
-* Return: 0 on succces
-**/
+ * get_env - get the environment
+ * @av: string where the enviroment is
+ * Return: 0 on succces
+ *                     _
+ *     /\             | |
+ *    /  \   _ __   __| |_   _
+ *   / /\ \ | '_ \ / _` | | | |
+ *  / ____ \| | | | (_| | |_| |
+ * /_/    \_\_|_|_|\__, |\__, | _   _
+ * \ \        / (_)   | | __/ || \ | |
+ *  \ \  /\  / / _ ___| ||___/ |  \| |
+ *   \ \/  \/ / | / __| __/ _ \| . ` |
+ *    \  /\  /  | \__ \ || (_) | |\  |
+ *     \/  \/   |_|___/\__\___/|_| \_| |- Nov 2020 -|
+ *
+ */
 int get_env(char *av)
 {
 	char *name = _strdup(av);
@@ -12,14 +24,12 @@ int get_env(char *av)
 	extern char **environ;
 	char **temp = NULL, **temp2 = NULL;
 	p_list *head;
-	
 	head = NULL;
 	(void)av;
 
 	while (environ[i] != NULL)
 	{
 		temp = split_str(environ[i], "=");
-		
 		if (strcmp(temp[0], name) == 0)
 		{
 			temp2 = split_str(temp[1], ":");
@@ -44,5 +54,5 @@ int get_env(char *av)
 	}
 	free(name);
 	free_list(head);
-	return(0);
+	return (0);
 }
