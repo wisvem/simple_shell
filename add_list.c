@@ -5,6 +5,7 @@
 * @head: head of the list
 * @str: element to put in the new node
 * Return: the address of the new element, or NULL if it failed
+*                     _
 *     /\             | |
 *    /  \   _ __   __| |_   _
 *   / /\ \ | '_ \ / _` | | | |
