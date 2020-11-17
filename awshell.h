@@ -44,6 +44,7 @@ typedef struct path_list
 
 
 /* string manipulation functions */
+int _strcmp(char *s1, char *s2);
 char *_strdup(char *str);
 char **split_str(char *str, char *delim);
 char *_strchr(char *s, char c);
@@ -53,6 +54,7 @@ char *get_env(char *str);
 void ctrap(int signal);
 
 /*Built-in functions*/
+void exitshell(char **av);
 int _env(int ac, char **av, char **env);
 
 /* list manipulation functions */
