@@ -12,19 +12,29 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 
-/* Shorten variables */
+/* shortened variables */
 #define STDERR STDERR_FILENO
 #define STDOUT STDOUT_FILENO
 #define STDIN STDIN_FILENO
-/*End of shorten*/.
+/* end of shortened */
+
+/**
+ * struct builtins - struct with type to find builtins and function to use
+ * @name: string to compare
+ * @function: printing function associated
+ */
 
 typedef struct builtins
 {
 	char *name;
 	void (*function)();
-}builtins_t
+} builtins_t;
 
-/* Path structure*/
+/**
+ * struct path_list - linked list with the path of executables
+ * @str: string
+ * @next: pointer
+ */
 
 typedef struct path_list
 {
@@ -33,7 +43,7 @@ typedef struct path_list
 } p_list;
 
 
-/*string manipulationfunctions*/
+/* string manipulation functions */
 char *_strdup(char *str);
 char **split_str(char *str, char *delim);
 char *_strchr(char *s, char c);
@@ -42,7 +52,7 @@ int exec(char **argv);
 char *get_env(char *str);
 void ctrap(int signal);
 
-/*List manipulation functions*/
+/* list manipulation functions */
 void free_list(p_list *head);
 p_list *add_list(p_list **head, const char *str);
 #endif /* AWSHELL */
