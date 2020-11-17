@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <limits.h>
+#include <signal.h>
 #include <fcntl.h>
 #include <sys/stat.h>
 #include <sys/types.h>
@@ -32,6 +33,7 @@ char *_strchr(char *s, char c);
 
 int exec(char **argv);
 char *get_env(char *str);
+void ctrap(int signal);
 
 /*List manipulation functions*/
 void free_list(p_list *head);

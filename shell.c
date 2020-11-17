@@ -15,15 +15,16 @@ int main(void)
 
 	if (isatty(STDIN) != 0)
 	{
-		write(STDOUT, "aw$: ", 5);
+		write(STDOUT, "\033[94maw$: \033[0m", 15);
 	}
+	signal(SIGINT, ctrap);
 	while ((x = getline(&buff, &len, stdin)) != -1)
 	{
 		buff[x - 1] = '\0';
 		exec(split_str(buff, " "));
 		if (isatty(STDIN) != 0)
 		{
-			write(STDOUT, "aw$: ", 5);
+			write(STDOUT, "\033[94maw$: \033[0m", 15);
 		}
 	}
 	if (isatty(STDIN) != 0)
