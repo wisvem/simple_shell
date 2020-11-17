@@ -5,8 +5,19 @@
  * @str: string to divide
  * @delim: delimiter
  * Return: pointers to each word on the array
+ *                     _
+ *     /\             | |
+ *    /  \   _ __   __| |_   _
+ *   / /\ \ | '_ \ / _` | | | |
+ *  / ____ \| | | | (_| | |_| |
+ * /_/    \_\_|_|_|\__, |\__, | _   _
+ * \ \        / (_)   | | __/ || \ | |
+ *  \ \  /\  / / _ ___| ||___/ |  \| |
+ *   \ \/  \/ / | / __| __/ _ \| . ` |
+ *    \  /\  /  | \__ \ || (_) | |\  |
+ *     \/  \/   |_|___/\__\___/|_| \_| |- Nov 2020 -|
+ *
  */
-
 char **split_str(char *str, char *delim)
 {
 	char *token, *token2, *str2;
