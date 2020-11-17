@@ -3,9 +3,21 @@
 /**
  * main - prints "aw$ ", wait for the user to enter a command,
  * to execute different programs.
- * @argc: number of argurments
- * @argv: arguments
  * Return: Always 0
+ *
+ *
+ *                     _
+ *     /\             | |
+ *    /  \   _ __   __| |_   _
+ *   / /\ \ | '_ \ / _` | | | |
+ *  / ____ \| | | | (_| | |_| |
+ * /_/    \_\_|_|_|\__,_|\__, | _   _
+ * \ \        / (_)   | | __/ || \ | |
+ *  \ \  /\  / / _ ___| ||___/ |  \| |
+ *   \ \/  \/ / | / __| __/ _ \| . ` |
+ *    \  /\  /  | \__ \ || (_) | |\  |
+ *     \/  \/   |_|___/\__\___/|_| \_| |- Nov 2020 -|
+ *
  */
 int main(void)
 {
