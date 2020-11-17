@@ -52,6 +52,9 @@ int exec(char **argv);
 char *get_env(char *str);
 void ctrap(int signal);
 
+/*Built-in functions*/
+int _env(int ac, char **av, char **env);
+
 /* list manipulation functions */
 void free_list(p_list *head);
 p_list *add_list(p_list **head, const char *str);
