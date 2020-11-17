@@ -16,7 +16,13 @@
 #define STDERR STDERR_FILENO
 #define STDOUT STDOUT_FILENO
 #define STDIN STDIN_FILENO
-/*End of shorten*/
+/*End of shorten*/.
+
+typedef struct builtins
+{
+	char *name;
+	void (*function)();
+}builtins_t
 
 /* Path structure*/
 
@@ -25,6 +31,7 @@ typedef struct path_list
 	char *str;
 	struct path_list *next;
 } p_list;
+
 
 /*string manipulationfunctions*/
 char *_strdup(char *str);
