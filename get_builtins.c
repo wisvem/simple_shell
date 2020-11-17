@@ -20,7 +20,7 @@ void (*get_builtins(builtins_t *av))
 {
 	unsigned int i;
 	builtins_t builtins[] = {
-		{"exit", exit},
+		{"exit", exitshell},
 		{"env", _env},
 		{"setenv", _setenv},
 		{"unsetenv", _unsetenv},
