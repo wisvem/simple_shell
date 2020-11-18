@@ -50,7 +50,7 @@ char **split_str(char *str, char *delim);
 char *_strchr(char *s, char c);
 
 int exec(char **argv, char **env);
-char **get_env(char *str, char **env);
+char *get_env(char *str, char **env);
 void ctrap(int signal);
 
 /*Built-in functions*/
