@@ -48,15 +48,10 @@ int _env(int ac, char **av, char **env)
  *     \/  \/   |_|___/\__\___/|_| \_| |- Nov 2020 -|
  *
  */
-void exitshell(builtins_t *av)
+int exitshell(void)
 {
-	char *x = "exit";
-
-	if (_strcmp(av, x) == 0)
-	{
-		free(av);
-		exit(98);
-	}
+	exit(98);
+	return (0);
 }
 
 /**
@@ -75,9 +70,10 @@ void exitshell(builtins_t *av)
  *     \/  \/   |_|___/\__\___/|_| \_| |- Nov 2020 -|
  *
  */
-void _setenv(void)
+int _setenv(void)
 {
-	printf("_setenv Work in progress")
+	printf("_setenv Work in progress");
+	return (0);
 }
 
 /**
@@ -96,9 +92,10 @@ void _setenv(void)
  *     \/  \/   |_|___/\__\___/|_| \_| |- Nov 2020 -|
  *
  */
-void _unsetenv(void)
+int _unsetenv(void)
 {
-	printf("_unsetenv Work in progress")
+	printf("_unsetenv Work in progress");
+	return (0);
 }
 
 
@@ -118,7 +115,8 @@ void _unsetenv(void)
  *     \/  \/   |_|___/\__\___/|_| \_| |- Nov 2020 -|
  *
  */
-void _help(void)
+int _help(void)
 {
-	printf("_help Work in progress")
+	printf("_help Work in progress");
+	return (0);
 }

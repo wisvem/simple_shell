@@ -27,7 +27,7 @@
 typedef struct builtins
 {
 	char *name;
-	void (*function)();
+	int (*function)();
 } builtins_t;
 
 /**
@@ -55,11 +55,12 @@ void ctrap(int signal);
 
 /*Built-in functions*/
 int _env(int ac, char **av, char **env);
-void exitshell(char **av);
-void _setenv(void);
-void _unsetenv(void);
-void _setenv(void);
-void _help(void);
+int exitshell(void);
+int _setenv(void);
+int _unsetenv(void);
+int _setenv(void);
+int _help(void);
+int (*get_builtins(char *string))(void);
 
 /* list manipulation functions */
 void free_list(p_list *head);

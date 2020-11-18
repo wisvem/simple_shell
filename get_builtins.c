@@ -16,10 +16,10 @@
  *     \/  \/   |_|___/\__\___/|_| \_| |- Nov 2020 -|
  *
  */
-void (*get_builtins(builtins_t *av))
+int (*get_builtins(char *string))(void)
 {
-	unsigned int i;
-	builtins_t builtins[] = {
+	unsigned int i, x;
+	builtins_t commands[] = {
 		{"exit", exitshell},
 		{"env", _env},
 		{"setenv", _setenv},
@@ -28,10 +28,15 @@ void (*get_builtins(builtins_t *av))
 		{NULL, NULL}
 	};
 
-	for (i = 0; builtins[i].function; i++)
+	for (i = 0; commands[i].name; i++)
 	{
-		if (_strcmp(builtins.av[0], builtins[i].name) == 0)
-			return (builtins[i].function);
+	
+		x = _strcmp(string, commands[i].name);
+	
+		if (x == 0)
+		{	
+			return (commands[i].function);
+		}
 	}
 	return (NULL);
 }

@@ -21,6 +21,10 @@ int exec(char **argv)
 {
 	pid_t child_pid;
 	int child_status, i = 0;
+	int (*f)(void);
+
+	f = get_builtins(argv[0]);
+	f();
 
 	child_pid = fork();
 	if (child_pid == 0)
