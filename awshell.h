@@ -50,7 +50,7 @@ char **split_str(char *str, char *delim);
 char *_strchr(char *s, char c);
 
 int exec(char **argv, char **env);
-char *get_env(char *str);
+char **get_env(char *str, char **env);
 void ctrap(int signal);
 
 /*Built-in functions*/
@@ -64,6 +64,7 @@ int _help(void);
 int (*get_builtins(char *string))(void);
 
 /* list manipulation functions */
+p_list *path_list(char **env);
 void free_list(p_list *head);
 p_list *add_list(p_list **head, const char *str);
 #endif /* AWSHELL */
