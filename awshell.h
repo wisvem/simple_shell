@@ -49,12 +49,13 @@ char *_strdup(char *str);
 char **split_str(char *str, char *delim);
 char *_strchr(char *s, char c);
 
-int exec(char **argv);
+int exec(char **argv, char **env);
 char *get_env(char *str);
 void ctrap(int signal);
 
 /*Built-in functions*/
-int _env(int ac, char **av, char **env);
+/*int _env(int ac, char **av, char **env);*/
+int _env(char **str);
 int exitshell(void);
 int _setenv(void);
 int _unsetenv(void);

@@ -17,18 +17,14 @@
  *     \/  \/   |_|___/\__\___/|_| \_| |- Nov 2020 -|
  *
  */
-int _env(int ac, char **av, char **env)
+int _env(char **env)
 {
-	unsigned int i;
-	(void)ac, (void)av;
-
-	i = 0;
-	while (env[i])
+	int i = 0;
+	while (env[i] != NULL)
 	{
 		printf("%s\n", env[i]);
 		i++;
 	}
-	i = 0;
 	return (0);
 }
 
@@ -50,8 +46,7 @@ int _env(int ac, char **av, char **env)
  */
 int exitshell(void)
 {
-	exit(98);
-	return (0);
+	exit(EXIT_SUCCESS);
 }
 
 /**
@@ -72,7 +67,7 @@ int exitshell(void)
  */
 int _setenv(void)
 {
-	printf("_setenv Work in progress");
+	printf("_help Work in progress\n");
 	return (0);
 }
 
@@ -94,7 +89,7 @@ int _setenv(void)
  */
 int _unsetenv(void)
 {
-	printf("_unsetenv Work in progress");
+	printf("_help Work in progress\n");
 	return (0);
 }
 
@@ -117,6 +112,6 @@ int _unsetenv(void)
  */
 int _help(void)
 {
-	printf("_help Work in progress");
+	printf("_help Work in progress\n");
 	return (0);
 }

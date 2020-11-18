@@ -17,12 +17,13 @@
  *     \/  \/   |_|___/\__\___/|_| \_| |- Nov 2020 -|
  *
  */
-int main(void)
+int main(int ac, char *av[], char **env)
 {
 	char *buff = NULL;
 	size_t len = 0;
 	int x = 0;
 
+	(void)ac, (void)av;
 	if (isatty(STDIN) != 0)
 	{
 		write(STDOUT, "\033[94maw$: \033[0m", 15);
@@ -31,7 +32,7 @@ int main(void)
 	while ((x = getline(&buff, &len, stdin)) != -1)
 	{
 		buff[x - 1] = '\0';
-		exec(split_str(buff, " "));
+		exec(split_str(buff, " "), env);
 		if (isatty(STDIN) != 0)
 		{
 			write(STDOUT, "\033[94maw$: \033[0m", 15);
