@@ -17,11 +17,11 @@
  *     \/  \/   |_|___/\__\___/|_| \_| |- Nov 2020 -|
  *
  */
-char **get_env(char *str, char **env)
+char *get_env(char *str, char **env)
 {
 	int i = 0, j = 0;
 	char *envcopy = NULL;
-	char **temp = NULL, **res = NULL;
+	char **temp = NULL, *res = NULL;
 	(void)str;
 
 	while (env[i] != NULL)
