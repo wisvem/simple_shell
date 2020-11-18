@@ -22,7 +22,7 @@ p_list *path_list(char *envname, char **env)
 	char *env_value;
 	char **entries;
 	int i = 0;
-	p_list *head;
+	p_list *head = NULL;
 
 	env_value = get_env(envname, env);
 	entries = split_str(env_value, ":");
