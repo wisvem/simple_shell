@@ -64,7 +64,7 @@ int _help(void);
 int (*get_builtins(char *string))(void);
 
 /* list manipulation functions */
-p_list *path_list(char **env);
+p_list *path_list(char *envname, char **env);
 void free_list(p_list *head);
 p_list *add_list(p_list **head, const char *str);
 #endif /* AWSHELL */

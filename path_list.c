@@ -17,41 +17,26 @@
  *     \/  \/   |_|___/\__\___/|_| \_| |- Nov 2020 -|
  *
  */
-p_list *path_list(char **env)
+p_list *path_list(char *envname, char **env)
 {
-	char *name = "PATH";
-	int i = 0, j = 0;
-	char **temp = NULL, **temp2 = NULL;
+	char *env_value;
+	char **entries;
+	int i = 0;
 	p_list *head;
-	head = NULL;
 
-	printf("Llego aqui\n");
-	while (env[i] != NULL)
+	env_value = get_env(envname, env);
+	entries = split_str(env_value, ":");
+	while(entries[i] != NULL)
 	{
-		temp = split_str(env[i], "=");
-	
-		if (strcmp(temp[0], name) == 0)
-		{
-			temp2 = split_str(temp[1], ":");
-			while (temp2[j] != NULL)
-			{
-				printf("Algo: %s\n", temp2[j]);
-				add_list(&head, temp2[j]);
-				free(temp2[j]);
-				j++;
-			}
-			free(temp2);
-			j = 0;
-		}
-		while (temp[j] != NULL)
-		{
-			free(temp[j]);
-			j++;
-		}
-		free(temp);
-		j = 0;
+		add_list(&head, entries[i]);
 		i++;
 	}
-	free(name);
-	return (head);
+	i = 0;
+	while (entries[i] != NULL)
+	{
+		free(entries[i]);
+		i++;
+	}
+	free(entries);
+	return(head);
 }
