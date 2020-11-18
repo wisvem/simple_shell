@@ -54,8 +54,12 @@ char *get_env(char *str);
 void ctrap(int signal);
 
 /*Built-in functions*/
-void exitshell(char **av);
 int _env(int ac, char **av, char **env);
+void exitshell(char **av);
+void _setenv(void);
+void _unsetenv(void);
+void _setenv(void);
+void _help(void);
 
 /* list manipulation functions */
 void free_list(p_list *head);
