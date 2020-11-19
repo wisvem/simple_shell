@@ -17,7 +17,11 @@
 #define STDOUT STDOUT_FILENO
 #define STDIN STDIN_FILENO
 /* end of shortened */
+
 #define PATH "PATH"
+
+/* extern call for env var */
+extern char **environ;
 
 /**
  * struct builtins - struct with type to find builtins and function to use
@@ -52,23 +56,23 @@ char *_strchr(char *s, char c);
 char *_strcat(char *dest, char *src);
 int _strlen(char *s);
 
-int exec(char **argv, char **env);
-char *get_env(char *str, char **env);
+int exec(char **argv);
+char *get_env(char *str);
 void ctrap(int signal);
-int _which(char *excname, char **env);
+int _which(char *excname);
 
 /*Built-in functions*/
-/*int _env(int ac, char **av, char **env);*/
-int _env(char **str);
+
+int _env(void);
 int exitshell(void);
 int _setenv(void);
 int _unsetenv(void);
 int _setenv(void);
 int _help(void);
-int (*get_builtins(char *string))(void);
+int get_builtins(char *string);
 
 /* list manipulation functions */
-p_list *path_list(char *envname, char **env);
+p_list *path_list(char *envname);
 void free_list(p_list *head);
 p_list *add_list(p_list **head, const char *str);
 #endif /* AWSHELL */
