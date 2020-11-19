@@ -1,12 +1,9 @@
-#include <stdio.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <unistd.h>
+#include "awshell.h"
 
 /**
  * main - stat example
  * @ac: amount of arguments
- * @av: arguments
+ * @excname: arguments
  * Return: Always 0.
  *                     _
  *     /\             | |
@@ -21,21 +18,28 @@
  *     \/  \/   |_|___/\__\___/|_| \_| |- Nov 2020 -|
  *
  */
-int main(int ac, char **av)
+int _which(char *excname, char **env)
 {
-	unsigned int i;
 	struct stat st;
+	/*char *ppen; path + excutable name*/
+	p_list *head, *copyhead;
+	unsigned int size;
+	char *fullpath;
 
-	if (ac < 2)
+	head = path_list(PATH, env);
+	copyhead = head;
+
+
+	while (copyhead)
 	{
-		printf("Usage: %s path_to_file ...\n", av[0]);
-		return (1);
-	}
-	i = 1;
-	while (av[i])
-	{
-		printf("%s:", av[i]);
-		if (stat(av[i], &st) == 0)
+		size = 1 + _strlen(excname) +_strlen((*copyhead).str);
+		fullpath = malloc(sizeof(char) * size);
+		fullpath = _strdup((*copyhead).str);
+		fullpath = _strcat(excname, fullpath);
+
+		printf("%s\n", fullpath);
+		
+		if (stat(fullpath, &st) == 0)
 		{
 			printf(" FOUND\n");
 		}
@@ -43,7 +47,9 @@ int main(int ac, char **av)
 		{
 			printf(" NOT FOUND\n");
 		}
-		i++;
+
+		free(fullpath);
 	}
+
 	return (0);
 }

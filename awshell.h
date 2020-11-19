@@ -17,6 +17,7 @@
 #define STDOUT STDOUT_FILENO
 #define STDIN STDIN_FILENO
 /* end of shortened */
+#define PATH "PATH"
 
 /**
  * struct builtins - struct with type to find builtins and function to use
@@ -48,10 +49,13 @@ int _strcmp(char *s1, char *s2);
 char *_strdup(char *str);
 char **split_str(char *str, char *delim);
 char *_strchr(char *s, char c);
+char *_strcat(char *dest, char *src);
+int _strlen(char *s);
 
 int exec(char **argv, char **env);
 char *get_env(char *str, char **env);
 void ctrap(int signal);
+int _which(char *excname, char **env);
 
 /*Built-in functions*/
 /*int _env(int ac, char **av, char **env);*/
