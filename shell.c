@@ -32,7 +32,7 @@ int main(int ac, char *av[])
 	while ((x = getline(&buff, &len, stdin)) != -1)
 	{
 		buff[x - 1] = '\0';
-		exec(split_str(buff, " "), environ);
+		exec(split_str(buff, " "));
 		if (isatty(STDIN) != 0)
 		{
 			write(STDOUT, "\033[94maw$: \033[0m", 15);
