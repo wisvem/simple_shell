@@ -55,7 +55,7 @@ char **split_str(char *str, char *delim);
 char *_strchr(char *s, char c);
 char *_strcat(char *dest, char *src);
 int _strlen(char *s);
-
+char *_memcpy(char *dest, char *src, unsigned int n);
 int exec(char **argv);
 char *get_env(char *str);
 void ctrap(int signal);
