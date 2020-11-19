@@ -17,14 +17,14 @@
  *     \/  \/   |_|___/\__\___/|_| \_| |- Nov 2020 -|
  *
  */
-p_list *path_list(char *envname, char **env)
+p_list *path_list(char *envname)
 {
 	char *env_value;
 	char **entries;
 	int i = 0;
 	p_list *head = NULL;
 
-	env_value = get_env(envname, env);
+	env_value = get_env(envname, environ);
 	entries = split_str(env_value, ":");
 	while(entries[i] != NULL)
 	{

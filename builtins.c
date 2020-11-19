@@ -17,14 +17,17 @@
  *     \/  \/   |_|___/\__\___/|_| \_| |- Nov 2020 -|
  *
  */
-int _env(char **env)
-{
-	int i = 0;
-	while (env[i] != NULL)
+int _env(void)
+{ unsigned int i = 0, size = 0;
+
+	while (environ[i])
 	{
-		printf("%s\n", env[i]);
+		size = _strlen(environ[i]);
+		write(STDOUT, environ[i], size);
+		write(STDOUT, "\n", 1);
 		i++;
 	}
+	i = 0;
 	return (0);
 }
 

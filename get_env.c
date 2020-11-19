@@ -17,20 +17,20 @@
  *     \/  \/   |_|___/\__\___/|_| \_| |- Nov 2020 -|
  *
  */
-char *get_env(char *str, char **env)
+char *get_env(char *str)
 {
 	int i = 0, j = 0;
 	char *envcopy = NULL;
 	char **temp = NULL, *res = NULL;
 	(void)str;
 
-	while (env[i] != NULL)
+	while (environ[i] != NULL)
 	{
-		envcopy = _strdup(env[i]);
+		envcopy = _strdup(environ[i]);
 		temp = split_str(envcopy, "=");
 		if (strcmp(temp[0], str) == 0)
-		{	
-			res = _strchr(env[i], '=');
+		{
+			res = _strchr(environ[i], '=');
 		}
 		while (temp[j] != NULL)
 		{
