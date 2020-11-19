@@ -59,7 +59,7 @@ char *_memcpy(char *dest, char *src, unsigned int n);
 int exec(char **argv);
 char *get_env(char *str);
 void ctrap(int signal);
-int _which(char *excname);
+char *_which(char *excname);
 
 /*Built-in functions*/
 

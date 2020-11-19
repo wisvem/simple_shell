@@ -1,7 +1,7 @@
 #include "awshell.h"
 
 /**
- * main - stat example
+ * _which - stat example
  * @ac: amount of arguments
  * @excname: arguments
  * Return: Always 0.
@@ -18,38 +18,39 @@
  *     \/  \/   |_|___/\__\___/|_| \_| |- Nov 2020 -|
  *
  */
-int _which(char *excname)
+char *_which(char *excname)
 {
 	struct stat st;
 	/*char *ppen; path + excutable name*/
-	p_list *head, *copyhead;
-	unsigned int size;
-	char *fullpath;
+	p_list *head = NULL, *copyhead = NULL;
+	unsigned int totalsize = 0, size1 = 0, size2 = 0;
+	char *fullpath = NULL;
 
 	head = path_list(PATH);
 	copyhead = head;
-
+	size1 =_strlen(excname);
 
 	while (copyhead)
 	{
-		size = 1 + _strlen(excname) +_strlen((*copyhead).str);
-		fullpath = malloc(sizeof(char) * size);
-		fullpath = _strdup((*copyhead).str);
-		fullpath = _strcat(excname, fullpath);
-
-		printf("%s\n", fullpath);
-		
+		size2 = _strlen((*copyhead).str);
+		totalsize = size1 + size2;
+		fullpath = malloc(sizeof(char) * (totalsize + 2));
+		if (fullpath == NULL)
+		{
+			return (-1);
+		}
+		memcpy(fullpath, (*copyhead).str, size2);
+		memcpy(fullpath + size2, "/", 1);
+		memcpy(fullpath + size2 + 1, excname, size1 +1);
+	/*	printf("FUllpath: (%s)\n\n", fullpath);*/
 		if (stat(fullpath, &st) == 0)
 		{
-			printf(" FOUND\n");
+			free(head);
+			return(fullpath);
 		}
-		else
-		{
-			printf(" NOT FOUND\n");
-		}
-
 		free(fullpath);
+		copyhead = (*copyhead).next;
 	}
-
-	return (0);
+	free_list(head);
+	return (NULL);
 }
