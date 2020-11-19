@@ -24,7 +24,7 @@ p_list *path_list(char *envname)
 	int i = 0;
 	p_list *head = NULL;
 
-	env_value = get_env(envname, environ);
+	env_value = get_env(envname);
 	entries = split_str(env_value, ":");
 	while(entries[i] != NULL)
 	{

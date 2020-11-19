@@ -18,7 +18,7 @@
  *     \/  \/   |_|___/\__\___/|_| \_| |- Nov 2020 -|
  *
  */
-int _which(char *excname, char **env)
+int _which(char *excname)
 {
 	struct stat st;
 	/*char *ppen; path + excutable name*/
@@ -26,7 +26,7 @@ int _which(char *excname, char **env)
 	unsigned int size;
 	char *fullpath;
 
-	head = path_list(PATH, env);
+	head = path_list(PATH);
 	copyhead = head;
 
 
