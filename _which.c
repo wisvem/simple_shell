@@ -26,6 +26,9 @@ char *_which(char *excname)
 	unsigned int totalsize = 0, size1 = 0, size2 = 0;
 	char *fullpath = NULL;
 
+	if (stat(excname, &st) == 0 || !excname)
+		return(excname);
+
 	head = path_list(PATH);
 	copyhead = head;
 	size1 =_strlen(excname);
@@ -37,12 +40,12 @@ char *_which(char *excname)
 		fullpath = malloc(sizeof(char) * (totalsize + 2));
 		if (fullpath == NULL)
 		{
-			return (-1);
+			return (NULL);
 		}
-		memcpy(fullpath, (*copyhead).str, size2);
-		memcpy(fullpath + size2, "/", 1);
-		memcpy(fullpath + size2 + 1, excname, size1 +1);
-	/*	printf("FUllpath: (%s)\n\n", fullpath);*/
+		_memcpy(fullpath, (*copyhead).str, size2);
+		_memcpy(fullpath + size2, "/", 1);
+		_memcpy(fullpath + size2 + 1, excname, size1 +1);
+
 		if (stat(fullpath, &st) == 0)
 		{
 			free(head);
@@ -51,6 +54,7 @@ char *_which(char *excname)
 		free(fullpath);
 		copyhead = (*copyhead).next;
 	}
+	free_list(copyhead);
 	free_list(head);
 	return (NULL);
 }

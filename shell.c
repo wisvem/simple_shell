@@ -19,7 +19,7 @@
  */
 int main(int ac, char *av[])
 {
-	char *buff = NULL;
+	char *buff = NULL, *buff_w = NULL, **buff_split = NULL;
 	size_t len = 0;
 	int x = 0;
 
@@ -32,8 +32,14 @@ int main(int ac, char *av[])
 	while ((x = getline(&buff, &len, stdin)) != -1)
 	{
 		buff[x - 1] = '\0';
+		buff_split = _strdup(buff);
+		
+		if (_strcmp(_which(buff_w), buff_which) == 0)
+
 		if (get_builtins(buff) != 0)
+		{
 			exec(split_str(buff, " "));
+		}
 		if (isatty(STDIN) != 0)
 		{
 			write(STDOUT, "\033[94maw$: \033[0m", 15);
