@@ -2,7 +2,6 @@
 
 /**
  * _env - prints the environment
- *
  * Return: Always 0.
  *                     _
  *     /\             | |
@@ -33,7 +32,7 @@ int _env(void)
 
 /**
  * exitshell - exits the shell
- * @buffer: the argument for exit
+ * Return: Always 0.
  *                     _
  *     /\             | |
  *    /  \   _ __   __| |_   _
@@ -54,7 +53,7 @@ int exitshell(void)
 
 /**
  * _setenv - exits the shell
- * @buffer: the argument for exit
+ * Return: Always 0.
  *                     _
  *     /\             | |
  *    /  \   _ __   __| |_   _
@@ -76,7 +75,7 @@ int _setenv(void)
 
 /**
  * _unsetenv - exits the shell
- * @buffer: the argument for exit
+ * Return: Always 0.
  *                     _
  *     /\             | |
  *    /  \   _ __   __| |_   _
@@ -99,7 +98,7 @@ int _unsetenv(void)
 
 /**
  * _help - exits the shell
- * @buffer: the argument for exit
+ * Return: Always 0.
  *                     _
  *     /\             | |
  *    /  \   _ __   __| |_   _
