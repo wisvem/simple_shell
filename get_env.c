@@ -20,17 +20,18 @@
 char *get_env(char *str)
 {
 	int i = 0, j = 0;
-	char *envcopy = NULL;
+	char *envcopy, *envcopy2 = NULL;
 	char **temp = NULL, *res = NULL;
 	(void)str;
 
 	while (environ[i] != NULL)
 	{
 		envcopy = _strdup(environ[i]);
+		envcopy2 = _strdup(environ[i]);
 		temp = split_str(envcopy, "=");
 		if (strcmp(temp[0], str) == 0)
 		{
-			res = _strchr(environ[i], '=');
+			res = _strchr(envcopy2, '=');
 		}
 		while (temp[j] != NULL)
 		{
@@ -39,6 +40,7 @@ char *get_env(char *str)
 		}
 		free(temp);
 		free(envcopy);
+		free(envcopy2);
 		j = 0;
 		i++;
 	}
