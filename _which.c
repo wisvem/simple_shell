@@ -2,7 +2,6 @@
 
 /**
  * _which - stat example
- * @ac: amount of arguments
  * @excname: arguments
  * Return: Always 0.
  *                     _
@@ -26,10 +25,10 @@ char *_which(char *excname)
 	char *fullpath = NULL;
 
 	if (stat(excname, &st) == 0 || !excname)
-		return(excname);
+		return (excname);
 	head = path_list(PATH);
 	copyhead = head;
-	size1 =_strlen(excname);
+	size1 = _strlen(excname);
 	while (copyhead != NULL)
 	{
 		size2 = _strlen((*copyhead).str);
@@ -43,13 +42,13 @@ char *_which(char *excname)
 
 		_memcpy(fullpath, (*copyhead).str, size2);
 		_memcpy(fullpath + size2, "/", 1);
-		_memcpy(fullpath + size2 + 1, excname, size1 +1);
+		_memcpy(fullpath + size2 + 1, excname, size1 + 1);
 		fullpath[totalsize + 2] = '\0';
 
 		if (stat(fullpath, &st) == 0)
 		{
 			free(head);
-			return(fullpath);
+			return (fullpath);
 		}
 		free(fullpath);
 		copyhead = (*copyhead).next;

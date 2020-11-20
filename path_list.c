@@ -1,9 +1,9 @@
 #include "awshell.h"
 
 /**
- * get_env - get the environment
- * @av: string where the enviroment is
- * Return: 0 on succces
+ * path_list - builds the environment list according to envname
+ * @envname: name of the environment
+ * Return: pointer to the head list
  *                     _
  *     /\             | |
  *    /  \   _ __   __| |_   _
@@ -23,9 +23,10 @@ p_list *path_list(char *envname)
 	char **entries;
 	int i = 0;
 	p_list *head = NULL;
+
 	env_value = get_env(envname);
 	entries = split_str(env_value, ":");
-	while(entries[i] != NULL)
+	while (entries[i] != NULL)
 	{
 		add_list(&head, entries[i]);
 		i++;
@@ -37,5 +38,5 @@ p_list *path_list(char *envname)
 		i++;
 	}
 	free(entries);
-	return(head);
+	return (head);
 }
