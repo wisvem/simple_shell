@@ -43,7 +43,7 @@ int main(int ac, char *av[])
 			if (buff_split[0])
 			{
 				buff_split[0] = _strdup(command);
-			}		
+			}
 		}
 		if (get_builtins(buff) != 0)
 		{

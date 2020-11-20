@@ -21,7 +21,6 @@
 char *_which(char *excname)
 {
 	struct stat st;
-	/*char *ppen; path + excutable name*/
 	p_list *head = NULL, *copyhead = NULL;
 	unsigned int totalsize = 0, size1 = 0, size2 = 0;
 	char *fullpath = NULL;
@@ -35,13 +34,13 @@ char *_which(char *excname)
 	{
 		size2 = _strlen((*copyhead).str);
 		totalsize = size1 + size2;
-		
+
 		fullpath = malloc(sizeof(char) * (totalsize + 2));
 		if (fullpath == NULL)
 		{
 			return (NULL);
 		}
-		
+
 		_memcpy(fullpath, (*copyhead).str, size2);
 		_memcpy(fullpath + size2, "/", 1);
 		_memcpy(fullpath + size2 + 1, excname, size1 +1);

@@ -21,13 +21,15 @@ int exec(char **argv)
 {
 	pid_t child_pid;
 	int child_status, i = 0;
+	char *path = NULL;
 
 	child_pid = fork();
 	if (child_pid == 0)
 	{
-		if ((execve(argv[0], argv, environ) == -1) && argv[0] != NULL)
+		path = _which(argv[0]);
+		if ((execve(path, argv, environ) == -1) && argv[0] != NULL)
 		{
-			printf("%s: command not found\n", argv[0]);
+			execve(argv[0], argv, environ);
 		}
 		exit(EXIT_FAILURE);
 	}
