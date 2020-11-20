@@ -25,7 +25,7 @@ int exec(char **argv)
 	child_pid = fork();
 	if (child_pid == 0)
 	{
-		if ((execve(argv[0], argv, NULL) == -1) && argv[0] != NULL)
+		if ((execve(argv[0], argv, environ) == -1) && argv[0] != NULL)
 		{
 			printf("%s: command not found\n", argv[0]);
 		}

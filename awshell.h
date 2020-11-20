@@ -75,4 +75,5 @@ int get_builtins(char *string);
 p_list *path_list(char *envname);
 void free_list(p_list *head);
 p_list *add_list(p_list **head, const char *str);
+size_t print_list(const p_list *h);
 #endif /* AWSHELL */

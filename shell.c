@@ -22,7 +22,7 @@ int main(int ac, char *av[])
 	char *buff = NULL, *buff_w = NULL, **buff_split = NULL;
 	char *command;
 	size_t len = 0;
-	int x = 0, i = 0;
+	int x = 0;
 
 	(void)ac, (void)av;
 	if (isatty(STDIN) != 0)
@@ -35,18 +35,15 @@ int main(int ac, char *av[])
 		buff[x - 1] = '\0';
 		buff_split = split_str(buff, " ");
 		buff_w = _strdup(buff_split[0]);
-		
 		command = _strdup(_which(buff_w));
-		if (_strcmp(command, buff_w) != 0)
+		if ((command != NULL) && (_strcmp(command, buff_w) != 0))
 		{
 			buff_split[0] = NULL;
 			buff_split[0] = malloc(sizeof(char) * (_strlen(command) + 1));
 			if (buff_split[0])
 			{
 				buff_split[0] = _strdup(command);
-			}
-			i = 0;
-			
+			}		
 		}
 		if (get_builtins(buff) != 0)
 		{

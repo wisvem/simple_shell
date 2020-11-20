@@ -28,23 +28,24 @@ char *_which(char *excname)
 
 	if (stat(excname, &st) == 0 || !excname)
 		return(excname);
-
 	head = path_list(PATH);
 	copyhead = head;
 	size1 =_strlen(excname);
-
-	while (copyhead)
+	while (copyhead != NULL)
 	{
 		size2 = _strlen((*copyhead).str);
 		totalsize = size1 + size2;
+		
 		fullpath = malloc(sizeof(char) * (totalsize + 2));
 		if (fullpath == NULL)
 		{
 			return (NULL);
 		}
+		
 		_memcpy(fullpath, (*copyhead).str, size2);
 		_memcpy(fullpath + size2, "/", 1);
 		_memcpy(fullpath + size2 + 1, excname, size1 +1);
+		fullpath[totalsize + 2] = '\0';
 
 		if (stat(fullpath, &st) == 0)
 		{
