@@ -36,21 +36,22 @@ int main(int ac, char *av[])
 		buff_split = split_str(buff, " ");
 		buff_w = _strdup(buff_split[0]);
 		cmd = _which(buff_w);
-		if (_strcmp(cmd, buff_w) != 0))
-		{
+		if (_strcmp(cmd, buff_w) != 0)
+	        {
 			buff_split[0] = NULL;
 			buff_split[0] = malloc(sizeof(char) * (_strlen(cmd) + 1));
 			if (buff_split[0])
 				buff_split[0] = _strdup(cmd);
-		}
+	        }
 		if (get_builtins(buff) != 0)
 			exec(buff_split);
 		if (isatty(STDIN) != 0)
 			write(STDOUT, "\033[94maw$: \033[0m", 15);
-	}
+        }
 	if (isatty(STDIN) != 0)
 		write(STDOUT, "\n", 1);
 	free(buff);
 	free(buff_w);
+/*	free_double(buff_split);*/
 	return (0);
 }
