@@ -34,7 +34,7 @@ char *_which(char *excname)
 		size2 = _strlen((*copyhead).str);
 		totalsize = size1 + size2;
 
-		fullpath = malloc(sizeof(char) * (totalsize + 2));
+		fullpath = malloc(sizeof(char) * (totalsize + 3));
 		if (fullpath == NULL)
 		{
 			return (NULL);
@@ -53,7 +53,7 @@ char *_which(char *excname)
 		free(fullpath);
 		copyhead = (*copyhead).next;
 	}
-	free_list(copyhead);
-	free_list(head);
+	free(copyhead);
+	free(head);
 	return (NULL);
 }
