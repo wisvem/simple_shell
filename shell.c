@@ -35,8 +35,8 @@ int main(int ac, char *av[])
 		buff[x - 1] = '\0';
 		buff_split = split_str(buff, " ");
 		buff_w = _strdup(buff_split[0]);
-		cmd = _strdup(_which(buff_w));
-		if ((cmd != NULL) && (_strcmp(cmd, buff_w) != 0))
+		cmd = _which(buff_w);
+		if (_strcmp(cmd, buff_w) != 0))
 		{
 			buff_split[0] = NULL;
 			buff_split[0] = malloc(sizeof(char) * (_strlen(cmd) + 1));
@@ -52,6 +52,5 @@ int main(int ac, char *av[])
 		write(STDOUT, "\n", 1);
 	free(buff);
 	free(buff_w);
-	free_double(buff_split);
 	return (0);
 }
