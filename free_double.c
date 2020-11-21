@@ -20,7 +20,10 @@ void free_double(char **ptr)
 {
 	int i;
 
-	for(i = 0; ptr[i]; i++)
-		free(ptr[i]);
-	free(ptr);
+	if (ptr)
+	{
+		for(i = 0; ptr[i]; i++)
+			free(ptr[i]);
+		free(ptr);
+	}
 }
