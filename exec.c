@@ -27,7 +27,7 @@ int exec(char **argv)
 	if (child_pid == 0)
 	{
 		path = _which(argv[0]);
-		if ((execve(path, argv, environ) == -1) && argv[0] != NULL)
+		if ((execve(path, argv, environ) == -1))
 		{
 			execve(argv[0], argv, environ);
 		}
