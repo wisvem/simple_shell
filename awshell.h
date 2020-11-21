@@ -47,6 +47,9 @@ typedef struct path_list
 	struct path_list *next;
 } p_list;
 
+/* freeing memory */
+void free_double(char **ptr);
+
 
 /* string manipulation functions */
 int _strcmp(char *s1, char *s2);
