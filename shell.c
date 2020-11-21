@@ -52,6 +52,6 @@ int main(int ac, char *av[])
 		write(STDOUT, "\n", 1);
 	free(buff);
 	free(buff_w);
-	free(buff_split);
+	free_double(buff_split);
 	return (0);
 }
