@@ -16,9 +16,9 @@
  *     \/  \/   |_|___/\__\___/|_| \_| |- Nov 2020 -|
  *
  */
-int get_builtins(char *string)
+int get_builtins(char *string, char **ptr)
 {
-	int (*f)(void);
+	int (*f)();
 	unsigned int i, x;
 	builtins_t commands[] = {
 		{"exit", exitshell},
@@ -35,7 +35,7 @@ int get_builtins(char *string)
 		if (x == 0)
 		{
 			f = commands[i].function;
-			f();
+			f(ptr);
 			return (0);
 		}
 	}

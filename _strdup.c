@@ -18,7 +18,7 @@
  *     \/  \/   |_|___/\__\___/|_| \_| |- Nov 2020 -|
  *
  */
-char *_strdup(char *str)
+char *_strdup(const char *str)
 {
 	unsigned int i = 0, j;
 	char *ptr;

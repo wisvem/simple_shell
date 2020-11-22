@@ -20,7 +20,7 @@ void free_list(p_list *head)
 {
 	p_list *temp;
 
-	while (head != NULL)
+	while (head)
 	{
 		temp = (*head).next;
 		free((*head).str);
@@ -28,4 +28,31 @@ void free_list(p_list *head)
 		head = temp;
 	}
 	head = NULL;
+}
+
+/**
+ * free_double - frees a double pointer
+ * @ptr: pointer to free
+ *                     _
+ *     /\             | |
+ *    /  \   _ __   __| |_   _
+ *   / /\ \ | '_ \ / _` | | | |
+ *  / ____ \| | | | (_| | |_| |
+ * /_/    \_\_|_|_|\__, |\__, | _   _
+ * \ \        / (_)   | | __/ || \ | |
+ *  \ \  /\  / / _ ___| ||___/ |  \| |
+ *   \ \/  \/ / | / __| __/ _ \| . ` |
+ *    \  /\  /  | \__ \ || (_) | |\  |
+ *     \/  \/   |_|___/\__\___/|_| \_| |- Nov 2020 -|
+ */
+void free_double(char **ptr)
+{
+	int i;
+
+	if (ptr)
+	{
+		for(i = 0; ptr[i]; i++)
+			free(ptr[i]);
+		free(ptr);
+	}
 }

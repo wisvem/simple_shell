@@ -20,7 +20,7 @@
 int exec(char **argv)
 {
 	pid_t child_pid;
-	int child_status, i = 0;
+	int child_status;
 	char *path = NULL;
 
 	child_pid = fork();
@@ -42,10 +42,6 @@ int exec(char **argv)
 	{
 		wait(&child_status);
 	}
-	while (argv[i])
-	{
-		free(argv[i]), i++;
-	}
-	free(argv);
+	free_double(argv);
 	return (0);
 }

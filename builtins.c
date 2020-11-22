@@ -16,7 +16,7 @@
  *     \/  \/   |_|___/\__\___/|_| \_| |- Nov 2020 -|
  *
  */
-int _env(void)
+int _env(char **ptr)
 { unsigned int i = 0, size = 0;
 
 	while (environ[i])
@@ -27,6 +27,7 @@ int _env(void)
 		i++;
 	}
 	i = 0;
+	free_double(ptr);
 	return (0);
 }
 
@@ -46,8 +47,9 @@ int _env(void)
  *     \/  \/   |_|___/\__\___/|_| \_| |- Nov 2020 -|
  *
  */
-int exitshell(void)
+int exitshell(char **ptr)
 {
+	free_double(ptr);
 	exit(EXIT_SUCCESS);
 }
 
@@ -67,8 +69,9 @@ int exitshell(void)
  *     \/  \/   |_|___/\__\___/|_| \_| |- Nov 2020 -|
  *
  */
-int _setenv(void)
+int _setenv(char **ptr)
 {
+	free_double(ptr);
 	printf("_help Work in progress\n");
 	return (0);
 }
@@ -89,8 +92,9 @@ int _setenv(void)
  *     \/  \/   |_|___/\__\___/|_| \_| |- Nov 2020 -|
  *
  */
-int _unsetenv(void)
+int _unsetenv(char **ptr)
 {
+	free_double(ptr);
 	printf("_help Work in progress\n");
 	return (0);
 }
@@ -112,8 +116,9 @@ int _unsetenv(void)
  *     \/  \/   |_|___/\__\___/|_| \_| |- Nov 2020 -|
  *
  */
-int _help(void)
+int _help(char **ptr)
 {
+	free_double(ptr);
 	printf("_help Work in progress\n");
 	return (0);
 }

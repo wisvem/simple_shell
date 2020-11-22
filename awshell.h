@@ -47,10 +47,13 @@ typedef struct path_list
 	struct path_list *next;
 } p_list;
 
+/* freeing memory */
+void free_double(char **ptr);
+
 
 /* string manipulation functions */
 int _strcmp(char *s1, char *s2);
-char *_strdup(char *str);
+char *_strdup(const char *str);
 char **split_str(char *str, char *delim);
 char *_strchr(char *s, char c);
 char *_strcat(char *dest, char *src);
@@ -63,13 +66,13 @@ char *_which(char *excname);
 
 /*Built-in functions*/
 
-int _env(void);
-int exitshell(void);
-int _setenv(void);
-int _unsetenv(void);
-int _setenv(void);
-int _help(void);
-int get_builtins(char *string);
+int _env(char **ptr);
+int exitshell(char **ptr);
+int _setenv(char **ptr);
+int _unsetenv(char **ptr);
+int _setenv(char **ptr);
+int _help(char **ptr);
+int get_builtins(char *string, char **ptr);
 
 /* list manipulation functions */
 p_list *path_list(char *envname);

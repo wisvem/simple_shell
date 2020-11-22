@@ -34,8 +34,8 @@ int main(int ac, char *av[])
 	{
 		buff[x - 1] = '\0';
 		buff_split = split_str(buff, " ");
-		buff_w = _strdup(buff_split[0]);
-		cmd = _strdup(_which(buff_w));
+		buff_w = buff_split[0];
+		cmd = _which(buff_w);
 		if ((cmd != NULL) && (_strcmp(cmd, buff_w) != 0))
 		{
 			buff_split[0] = NULL;
@@ -43,14 +43,14 @@ int main(int ac, char *av[])
 			if (buff_split[0])
 				buff_split[0] = _strdup(cmd);
 		}
-		if (get_builtins(buff) != 0)
+		if (get_builtins(buff, buff_split) != 0)
 			exec(buff_split);
 		if (isatty(STDIN) != 0)
 			write(STDOUT, "\033[94maw$: \033[0m", 15);
 	}
 	if (isatty(STDIN) != 0)
 		write(STDOUT, "\n", 1);
-	free(buff);
+	/*free(buff);*/
 	free(buff_w);
 	free(buff_split);
 	return (0);

@@ -20,7 +20,7 @@
 char *get_env(char *str)
 {
 
-	int i = 0, j = 0;
+	int i = 0;
 	char *copy1 = NULL;
 	char **temp = NULL, *res = NULL;
 	char *copy2 = NULL;
@@ -34,14 +34,8 @@ char *get_env(char *str)
 		{	copy2 = _strdup(environ[i]);
 			res = _strchr(copy2, '=');
 		}
-		while (temp[j] != NULL)
-		{
-			free(temp[j]);
-			j++;
-		}
-		free(temp);
+		free_double(temp);
 		free(copy1);
-		j = 0;
 		i++;
 	}
 	return (res);

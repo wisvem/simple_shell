@@ -28,7 +28,7 @@ p_list *add_list(p_list **head, const char *str)
 	{
 		return (NULL);
 	}
-	(*newnode).str = strdup(str);
+	(*newnode).str = _strdup(str);
 	(*newnode).next = NULL;
 	if (!*head)
 	{
