@@ -47,9 +47,14 @@ int _env(char **ptr)
  *     \/  \/   |_|___/\__\___/|_| \_| |- Nov 2020 -|
  *
  */
-int exitshell(char **ptr)
+int exitshell(char **buff_split, char *buff, char *buff_w)
 {
-	free_double(ptr);
+	(void)buff_split;
+	(void)buff;
+	(void)buff_w;
+	/*free(buff);
+	free(buff_split);
+	free(buff_w);*/
 	exit(EXIT_SUCCESS);
 }
 

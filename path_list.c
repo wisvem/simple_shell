@@ -31,12 +31,7 @@ p_list *path_list(char *envname)
 		add_list(&head, entries[i]);
 		i++;
 	}
-	i = 0;
-	while (entries[i] != NULL)
-	{
-		free(entries[i]);
-		i++;
-	}
-	free(entries);
+	free_double(entries);
+	free(env_value);
 	return (head);
 }

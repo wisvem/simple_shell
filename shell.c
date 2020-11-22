@@ -43,7 +43,7 @@ int main(int ac, char *av[])
 			if (buff_split[0])
 				buff_split[0] = _strdup(cmd);
 		}
-		if (get_builtins(buff, buff_split) != 0)
+		if (get_builtins(buff, buff_split, buff_w) != 0)
 			exec(buff_split);
 		if (isatty(STDIN) != 0)
 			write(STDOUT, "\033[94maw$: \033[0m", 15);
