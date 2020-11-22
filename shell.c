@@ -50,7 +50,7 @@ int main(int ac, char *av[])
 	}
 	if (isatty(STDIN) != 0)
 		write(STDOUT, "\n", 1);
-	/*free(buff);*/
+	free(buff);
 	free(buff_w);
 	free(buff_split);
 	return (0);
