@@ -50,10 +50,10 @@ int main(int ac, char *av[])
 		if (isatty(STDIN) != 0)
 			write(STDOUT, "\033[94maw$: \033[0m", 15);
 	}
-	if (isatty(STDIN) != 0)
-		write(STDOUT, "\n", 1);
-	free(buff);
+/*	free(buff);
 	free(buff_w);
 	free_double(buff_split);
+*/	if (isatty(STDIN) != 0)
+		write(STDOUT, "\n", 1);
 	return (0);
 }
