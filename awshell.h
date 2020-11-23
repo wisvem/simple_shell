@@ -59,10 +59,11 @@ char *_strchr(char *s, char c);
 char *_strcat(char *dest, char *src);
 int _strlen(char *s);
 char *_memcpy(char *dest, char *src, unsigned int n);
-int exec(char **argv);
+int exec(char **argv, unsigned int counter);
 char *get_env(char *str);
 void ctrap(int signal);
 char *_which(char *excname);
+char *itos(unsigned int counter);
 
 /*Built-in functions*/
 
@@ -75,7 +76,7 @@ int _help(char **ptr);
 int get_builtins(char *buff, char **buff_split, char *buff_w);
 
 /* list manipulation functions */
-p_list *path_list(char *envname);
+p_list *path_list(void);
 void free_list(p_list *head);
 p_list *add_list(p_list **head, const char *str);
 size_t print_list(const p_list *h);
