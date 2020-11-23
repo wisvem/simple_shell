@@ -24,7 +24,7 @@ int main(int ac, char *av[])
 	char *buff = NULL, *buff_w = NULL, **buff_split = NULL;
 	char *cmd;
 	size_t len = 0;
-	int x = 0;
+	int x = 0, check_b;
 
 	(void)ac, (void)av;
 	if (isatty(STDIN) != 0)
@@ -35,6 +35,7 @@ int main(int ac, char *av[])
 		buff[x - 1] = '\0';
 		buff_split = split_str(buff, " ");
 		buff_w = buff_split[0];
+		check_b = get_builtins(buff, buff_split, buff_w);
 		cmd = _which(buff_w);
 		if ((cmd != NULL) && (_strcmp(cmd, buff_w) != 0))
 		{
@@ -43,7 +44,7 @@ int main(int ac, char *av[])
 			if (buff_split[0])
 				buff_split[0] = _strdup(cmd);
 		}
-		if (get_builtins(buff, buff_split, buff_w) != 0)
+		if (check_b != 0)
 			exec(buff_split);
 		if (isatty(STDIN) != 0)
 			write(STDOUT, "\033[94maw$: \033[0m", 15);
@@ -52,6 +53,6 @@ int main(int ac, char *av[])
 		write(STDOUT, "\n", 1);
 	free(buff);
 	free(buff_w);
-	free(buff_split);
+	free_double(buff_split);
 	return (0);
 }

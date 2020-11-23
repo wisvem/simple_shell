@@ -17,7 +17,8 @@
  *
  */
 int _env(char **ptr)
-{ unsigned int i = 0, size = 0;
+{
+	unsigned int i = 0, size = 0;
 
 	while (environ[i])
 	{
@@ -52,9 +53,9 @@ int exitshell(char **buff_split, char *buff, char *buff_w)
 	(void)buff_split;
 	(void)buff;
 	(void)buff_w;
-	/*free(buff);
-	free(buff_split);
-	free(buff_w);*/
+	free(buff);
+	free_double(buff_split);
+	free(buff_w);
 	exit(EXIT_SUCCESS);
 }
 
