@@ -36,9 +36,7 @@ int exec(char **argv, unsigned int counter)
 			write(STDERR, ": ", 2);
 			write(STDERR, argv[0], _strlen(argv[0]));
 			write(STDERR, ": not found\n", 12);
-
 		}
-
 		exit(EXIT_FAILURE);
 	}
 	else if (child_pid < 0)

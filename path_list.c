@@ -21,11 +21,30 @@ p_list *path_list(void)
 {
 	char *env_value;
 	char **entries;
-	int i = 0;
+	char *temp;
+	int i = 0, size_path;
 	p_list *head = NULL;
 
 	env_value = get_env(PATH);
-	entries = split_str(env_value, ":");
+	if (env_value[0] == ':')
+	{
+		size_path =_strlen(env_value);
+		temp = malloc(sizeof(char) * (size_path + 2));
+		temp[0] = '.';
+		for (; env_value[i]; i++)
+		{ 
+			temp[i + 1] = env_value[i];
+		}
+		temp[i] = '\0';
+		entries = split_str(temp, ":");
+		free(temp);
+	
+	}
+	else
+	{
+		entries = split_str(env_value, ":");
+	}
+	i = 0;
 	while (entries[i] != NULL)
 	{
 		add_list(&head, entries[i]);

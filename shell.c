@@ -38,6 +38,7 @@ int main(int ac, char *av[])
 		buff_w = buff_split[0];
 		check_b = get_builtins(buff, buff_split, buff_w);
 		cmd = _which(buff_w);
+		/*printf("CMD = %s\n", cmd);*/
 		if ((cmd != NULL) && (_strcmp(cmd, buff_w) != 0))
 		{
 			buff_split[0] = NULL;
@@ -50,10 +51,13 @@ int main(int ac, char *av[])
 		if (isatty(STDIN) != 0)
 			write(STDOUT, "\033[94maw$: \033[0m", 15);
 	}
-/*	free(buff);
-	free(buff_w);
-	free_double(buff_split);
-*/	if (isatty(STDIN) != 0)
+
+	if (isatty(STDIN) != 0)
+	{
 		write(STDOUT, "\n", 1);
+		free(buff);
+		free(buff_w);
+		free_double(buff_split);
+	}
 	return (0);
 }
