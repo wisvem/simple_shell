@@ -55,7 +55,6 @@ int exitshell(char **buff_split, char *buff, char *buff_w)
 	(void)buff_w;
 	free(buff);
 	free_double(buff_split);
-	free(buff_w);
 	exit(EXIT_SUCCESS);
 }
 

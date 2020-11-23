@@ -24,9 +24,9 @@ char *_which(char *excname)
 	unsigned int totalsize = 0, size1 = 0, size2 = 0;
 	char *fullpath = NULL;
 
-	if (stat(excname, &st) == 0 || !excname)
+	if (!excname || (stat(excname, &st) == 0))
 		return (excname);
-	head = path_list(PATH);
+	head = path_list();
 	copyhead = head;
 	size1 = _strlen(excname);
 	while (copyhead != NULL)
@@ -47,13 +47,12 @@ char *_which(char *excname)
 
 		if (stat(fullpath, &st) == 0)
 		{
-			free(head);
+			free_list(head);
 			return (fullpath);
 		}
 		free(fullpath);
 		copyhead = (*copyhead).next;
 	}
-	free_list(copyhead);
 	free_list(head);
 	return (NULL);
 }

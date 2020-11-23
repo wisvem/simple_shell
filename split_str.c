@@ -26,13 +26,11 @@ char **split_str(char *str, char *delim)
 
 	str2 = _strdup(str);
 	token = strtok(str, delim);
-
 	while (token)
 	{
 		token = strtok(NULL, delim);
 		words++;
 	}
-
 	token2 = strtok(str2, delim);
 
 	wordarray = malloc(sizeof(char *) * (words + 1));

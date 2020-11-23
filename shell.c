@@ -23,7 +23,7 @@ int main(int ac, char *av[])
 {
 	char *buff = NULL, *buff_w = NULL, **buff_split = NULL;
 	char *cmd;
-	size_t len = 0;
+	size_t len = 0, counter = 0;
 	int x = 0, check_b;
 
 	(void)ac, (void)av;
@@ -32,6 +32,7 @@ int main(int ac, char *av[])
 	signal(SIGINT, ctrap);
 	while ((x = getline(&buff, &len, stdin)) != -1)
 	{
+		counter++;
 		buff[x - 1] = '\0';
 		buff_split = split_str(buff, " ");
 		buff_w = buff_split[0];
@@ -45,7 +46,7 @@ int main(int ac, char *av[])
 				buff_split[0] = _strdup(cmd);
 		}
 		if (check_b != 0)
-			exec(buff_split);
+			exec(buff_split, counter);
 		if (isatty(STDIN) != 0)
 			write(STDOUT, "\033[94maw$: \033[0m", 15);
 	}
