@@ -24,6 +24,7 @@ char **split_str(char *str, char *delim)
 	int words = 0, i = 0;
 	char **wordarray;
 
+	(void)test;
 	str2 = _strdup(str);
 	token = strtok(str, delim);
 	while (token)

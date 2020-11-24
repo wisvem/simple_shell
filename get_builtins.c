@@ -31,6 +31,7 @@ int get_builtins(char *buff, char **buff_split, char *buff_w)
 		{NULL, NULL}
 	};
 
+	(void)test;
 	for (i = 0; commands[i].name; i++)
 	{
 		x = _strcmp(buff, commands[i].name);

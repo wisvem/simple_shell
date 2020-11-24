@@ -23,6 +23,7 @@ int _strcmp(char *s1, char *s2)
 	int sub;
 	int x = 0;
 
+	(void)test;
 	while (s1[x] == s2[x] && s1[x] != '\0')
 	{
 		sub = 0;

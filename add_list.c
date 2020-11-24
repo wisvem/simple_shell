@@ -23,6 +23,7 @@ p_list *add_list(p_list **head, const char *str)
 	p_list *newnode = NULL;
 	p_list *lastnode = *head;
 
+	(void)test;
 	newnode = malloc(sizeof(p_list));
 	if (!newnode)
 	{

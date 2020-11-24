@@ -21,6 +21,7 @@ int _env(char **ptr)
 {
 	unsigned int i = 0, size = 0;
 
+	(void)test;
 	while (environ[i])
 	{
 		size = _strlen(environ[i]);
@@ -54,6 +55,7 @@ int _env(char **ptr)
  */
 int exitshell(char **buff_split, char *buff, char *buff_w)
 {
+	(void)test;
 	(void)buff_split;
 	(void)buff;
 	(void)buff_w;
@@ -83,6 +85,7 @@ int exitshell(char **buff_split, char *buff, char *buff_w)
  */
 int _setenv(char **ptr)
 {
+	(void)test;
 	free_double(ptr);
 	printf("_help Work in progress\n");
 	return (0);
@@ -107,6 +110,7 @@ int _setenv(char **ptr)
  */
 int _unsetenv(char **ptr)
 {
+	(void)test;
 	free_double(ptr);
 	printf("_help Work in progress\n");
 	return (0);
@@ -132,6 +136,7 @@ int _unsetenv(char **ptr)
  */
 int _help(char **ptr)
 {
+	(void)test;
 	free_double(ptr);
 	printf("_help Work in progress\n");
 	return (0);

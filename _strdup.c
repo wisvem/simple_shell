@@ -23,6 +23,7 @@ char *_strdup(const char *str)
 	unsigned int i = 0, j;
 	char *ptr;
 
+	(void)test;
 	if (str == NULL)
 	{
 		return (NULL);

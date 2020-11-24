@@ -25,7 +25,8 @@ int exec(char **argv, unsigned int counter, char *shellav)
 	int child_status, error_code;
 	char *path = NULL;
 	char *c_counter = NULL;
-
+	
+	(void)test;
 	if ((_which(argv[0])) == NULL)
 	{
 		c_counter = itos(counter);

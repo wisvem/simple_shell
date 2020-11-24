@@ -9,6 +9,7 @@ int _strlen(char *s)
 {
 	int i = 0;
 
+	(void)test;
 	while (s[i] != '\0')
 	{
 		i++;

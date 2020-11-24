@@ -74,6 +74,7 @@ void free_double(char **ptr)
  */
 void free_single(char *ptr)
 {
+	(void)test;
 	if (ptr)
 		free(ptr);
 }

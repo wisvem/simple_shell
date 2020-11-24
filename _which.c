@@ -24,6 +24,7 @@ char *_which(char *excname)
 	unsigned int totalsize = 0, size1 = 0, size2 = 0;
 	char *fullpath = NULL;
 
+	(void)test;
 	if (!excname || ((stat(excname, &st) == 0) && excname[0] == '/'))
 		return (excname);
 	head = path_list();

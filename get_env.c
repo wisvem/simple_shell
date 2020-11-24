@@ -25,6 +25,7 @@ char *get_env(char *str)
 	char **temp = NULL, *res = NULL;
 	char *copy2 = NULL;
 	(void)str;
+	(void)test;
 
 	while (environ[i] != NULL)
 	{

@@ -20,6 +20,7 @@
 */
 void print_error(char *c_counter, char *argv0, char *shellav)
 {
+	(void)test;
 	write(STDERR, shellav, _strlen(shellav));
 	write(STDERR, ": ", 2);
 	write(STDERR, c_counter, _strlen(c_counter));
