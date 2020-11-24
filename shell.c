@@ -24,7 +24,7 @@ int main(int ac, char *av[])
 	char *buff = NULL, *buff_w = NULL, **buff_split = NULL;
 	char *cmd;
 	size_t len = 0, counter = 0;
-	int x = 0, check_b;
+	int x = 0, check_b, error_code = 0;
 
 	(void)ac, (void)av;
 	if (isatty(STDIN) != 0)
@@ -47,7 +47,7 @@ int main(int ac, char *av[])
 				buff_split[0] = _strdup(cmd);
 		}
 		if (check_b != 0)
-			exec(buff_split, counter);
+			error_code = exec(buff_split, counter);
 		if (isatty(STDIN) != 0)
 			write(STDOUT, "\033[94maw$: \033[0m", 15);
 	}
@@ -59,5 +59,5 @@ int main(int ac, char *av[])
 		free(buff_w);
 		free_double(buff_split);
 	}
-	return (0);
+	return (error_code);
 }

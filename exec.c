@@ -20,7 +20,7 @@
 int exec(char **argv, unsigned int counter)
 {
 	pid_t child_pid;
-	int child_status;
+	int child_status, error_code;
 	char *path = NULL;
 	char *c_counter = itos(counter);
 
@@ -36,18 +36,26 @@ int exec(char **argv, unsigned int counter)
 			write(STDERR, ": ", 2);
 			write(STDERR, argv[0], _strlen(argv[0]));
 			write(STDERR, ": not found\n", 12);
+			
 		}
-		exit(EXIT_FAILURE);
+		exit(errno);
 	}
 	else if (child_pid < 0)
 	{
-		perror("Failed to fork\n");
-		return (-1);
+		return(errno);
 	}
 	else
 	{
 		wait(&child_status);
+		if (WIFEXITED(child_status))
+		{
+			error_code = WEXITSTATUS(child_status);
+			if (error_code != 0)
+			{
+				error_code = 127;
+			}
+		}
 	}
 	free_double(argv);
-	return (0);
+	return (error_code);
 }
