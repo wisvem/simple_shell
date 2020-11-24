@@ -49,7 +49,7 @@ char *_which(char *excname)
 			free_list(head);
 			return (fullpath);
 		}
-		free(fullpath);
+		free_single(fullpath);
 		copyhead = (*copyhead).next;
 	}
 	free_list(head);

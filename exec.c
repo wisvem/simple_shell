@@ -18,7 +18,7 @@
 *     \/  \/   |_|___/\__\___/|_| \_| |- Nov 2020 -|
 *
 */
-int exec(char **argv, unsigned int counter)
+int exec(char **argv, unsigned int counter, char *shellav)
 {
 	pid_t child_pid;
 	int child_status, error_code;
@@ -28,8 +28,9 @@ int exec(char **argv, unsigned int counter)
 	if ((_which(argv[0])) == NULL)
 	{
 		c_counter = itos(counter);
-		print_error(c_counter, argv[0]);
+		print_error(c_counter, argv[0], shellav);
 		free_double(argv);
+		free_single(c_counter);
 		return (127);
 	}
 	child_pid = fork();
@@ -39,12 +40,8 @@ int exec(char **argv, unsigned int counter)
 		{
 			c_counter = itos(counter);
 			execve(argv[0], argv, environ);
-			write(STDERR, "hsh: ", 5);
-			write(STDERR, c_counter, _strlen(c_counter));
-			write(STDERR, ": ", 2);
-			write(STDERR, argv[0], _strlen(argv[0]));
-			write(STDERR, ": not found\n", 12);
-			free(c_counter);
+			print_error(c_counter, argv[0], shellav);
+			free_single(c_counter);
 			exit(errno);
 		}
 		else

@@ -36,7 +36,7 @@ p_list *path_list(void)
 		}
 		temp[i] = '\0';
 		entries = split_str(temp, ":");
-		free(temp);
+		free_single(temp);
 	}
 	else
 	{

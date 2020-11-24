@@ -17,9 +17,10 @@
 *     \/  \/   |_|___/\__\___/|_| \_| |- Nov 2020 -|
 *
 */
-void print_error(char *c_counter, char *argv0)
+void print_error(char *c_counter, char *argv0, char *shellav)
 {
-	write(STDERR, "hsh: ", 5);
+	write(STDERR, shellav, _strlen(shellav));
+	write(STDERR, ": ", 2);
 	write(STDERR, c_counter, _strlen(c_counter));
 	write(STDERR, ": ", 2);
 	write(STDERR, argv0, _strlen(argv0));

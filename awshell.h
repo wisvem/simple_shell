@@ -20,6 +20,7 @@
 /* end of shortened */
 
 #define PATH "PATH"
+#define BSIZE 512
 
 /* extern call for env var */
 extern char **environ;
