@@ -22,39 +22,40 @@ int exec(char **argv, unsigned int counter)
 	pid_t child_pid;
 	int child_status, error_code;
 	char *path = NULL;
-	char *c_counter = itos(counter);
+	char *c_counter;
 
+	if ((path = _which(argv[0])) == NULL)
+	{
+		c_counter = itos(counter);
+		print_error(c_counter, argv[0]);
+		free_double(argv);
+		return (127);
+	}
 	child_pid = fork();
 	if (child_pid == 0)
 	{
-		path = _which(argv[0]);
 		if ((execve(path, argv, environ) == -1) && argv[0] != NULL)
 		{
+			c_counter = itos(counter);
 			execve(argv[0], argv, environ);
 			write(STDERR, "hsh: ", 5);
 			write(STDERR, c_counter, _strlen(c_counter));
 			write(STDERR, ": ", 2);
 			write(STDERR, argv[0], _strlen(argv[0]));
 			write(STDERR, ": not found\n", 12);
-			
+			free(c_counter);
+			exit(errno);
 		}
-		exit(errno);
+		else
+			exit(errno);
 	}
 	else if (child_pid < 0)
-	{
 		return(errno);
-	}
 	else
 	{
 		wait(&child_status);
 		if (WIFEXITED(child_status))
-		{
 			error_code = WEXITSTATUS(child_status);
-			if (error_code != 0)
-			{
-				error_code = 127;
-			}
-		}
 	}
 	free_double(argv);
 	return (error_code);

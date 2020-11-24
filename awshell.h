@@ -48,6 +48,7 @@ typedef struct path_list
 	struct path_list *next;
 } p_list;
 
+void print_error(char *c_counter, char *argv0);
 /* freeing memory */
 void free_double(char **ptr);
 
