@@ -51,7 +51,7 @@ void free_double(char **ptr)
 
 	if (ptr)
 	{
-		for(i = 0; ptr[i]; i++)
+		for (i = 0; ptr[i]; i++)
 			free(ptr[i]);
 		free(ptr);
 	}

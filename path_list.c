@@ -1,8 +1,7 @@
 #include "awshell.h"
 
 /**
- * path_list - builds the environment list according to envname
- * @envname: name of the environment
+ * path_list - builds the environment list
  * Return: pointer to the head list
  *                     _
  *     /\             | |
@@ -28,17 +27,16 @@ p_list *path_list(void)
 	env_value = get_env(PATH);
 	if (env_value[0] == ':')
 	{
-		size_path =_strlen(env_value);
+		size_path = _strlen(env_value);
 		temp = malloc(sizeof(char) * (size_path + 2));
 		temp[0] = '.';
 		for (; env_value[i]; i++)
-		{ 
+		{
 			temp[i + 1] = env_value[i];
 		}
 		temp[i] = '\0';
 		entries = split_str(temp, ":");
 		free(temp);
-	
 	}
 	else
 	{

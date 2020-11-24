@@ -2,9 +2,9 @@
 
 
 /**
-* itos - executes applications
-* @argv: arguments to execute
-* Return: 0 on success
+* itos - converts int to string
+* @counter: integer to convert
+* Return: string of counter
 *                     _
 *     /\             | |
 *    /  \   _ __   __| |_   _

@@ -1,7 +1,9 @@
 #include "awshell.h"
 /**
  * get_builtins - checks if the input command is a builtin
- * @string: name of the environment var to get
+ * @buff: name of the environment var to get
+ * @buff_w: copy name of the environment var to get
+ * @buff_split: buffer tokenized
  * Return: pointer to the function or NULL if it fails
  *                     _
  *     /\             | |

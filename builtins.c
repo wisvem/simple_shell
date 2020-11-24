@@ -2,6 +2,7 @@
 
 /**
  * _env - prints the environment
+ * @ptr: buffer tokenized to free
  * Return: Always 0.
  *                     _
  *     /\             | |
@@ -34,6 +35,9 @@ int _env(char **ptr)
 
 /**
  * exitshell - exits the shell
+ * @buff: name of the environment var to free
+ * @buff_w: copy name of the environment var to free
+ * @buff_split: buffer tokenized to free
  * Return: Always 0.
  *                     _
  *     /\             | |
@@ -60,6 +64,7 @@ int exitshell(char **buff_split, char *buff, char *buff_w)
 
 /**
  * _setenv - exits the shell
+ * @ptr: buffer tokenized to free
  * Return: Always 0.
  *                     _
  *     /\             | |
@@ -83,6 +88,7 @@ int _setenv(char **ptr)
 
 /**
  * _unsetenv - exits the shell
+ * @ptr: buffer tokenized to free
  * Return: Always 0.
  *                     _
  *     /\             | |
@@ -107,6 +113,7 @@ int _unsetenv(char **ptr)
 
 /**
  * _help - exits the shell
+ * @ptr: buffer tokenized to free
  * Return: Always 0.
  *                     _
  *     /\             | |

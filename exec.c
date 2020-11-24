@@ -3,6 +3,7 @@
 /**
 * exec - executes applications
 * @argv: arguments to execute
+* @counter: counting of every command typed
 * Return: 0 on success
 *                     _
 *     /\             | |
@@ -24,7 +25,7 @@ int exec(char **argv, unsigned int counter)
 	char *path = NULL;
 	char *c_counter;
 
-	if ((path = _which(argv[0])) == NULL)
+	if ((_which(argv[0])) == NULL)
 	{
 		c_counter = itos(counter);
 		print_error(c_counter, argv[0]);
@@ -50,13 +51,10 @@ int exec(char **argv, unsigned int counter)
 			exit(errno);
 	}
 	else if (child_pid < 0)
-		return(errno);
-	else
-	{
-		wait(&child_status);
-		if (WIFEXITED(child_status))
-			error_code = WEXITSTATUS(child_status);
-	}
+		return (errno);
+	wait(&child_status);
+	if (WIFEXITED(child_status))
+		error_code = WEXITSTATUS(child_status);
 	free_double(argv);
 	return (error_code);
 }

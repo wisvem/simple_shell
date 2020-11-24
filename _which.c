@@ -23,7 +23,7 @@ char *_which(char *excname)
 	p_list *head = NULL, *copyhead = NULL;
 	unsigned int totalsize = 0, size1 = 0, size2 = 0;
 	char *fullpath = NULL;
-	
+
 	if (!excname || ((stat(excname, &st) == 0) && excname[0] == '/'))
 		return (excname);
 	head = path_list();
