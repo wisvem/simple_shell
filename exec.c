@@ -23,7 +23,7 @@ int exec(char **argv, unsigned int counter, char *shellav)
 	pid_t child_pid;
 	int child_status, error_code;
 	char *path = NULL;
-	char *c_counter;
+	char *c_counter = NULL;
 
 	if ((_which(argv[0])) == NULL)
 	{
@@ -36,6 +36,7 @@ int exec(char **argv, unsigned int counter, char *shellav)
 	child_pid = fork();
 	if (child_pid == 0)
 	{
+		path = _which(argv[0]);
 		if ((execve(path, argv, environ) == -1) && argv[0] != NULL)
 		{
 			c_counter = itos(counter);

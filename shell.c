@@ -38,7 +38,6 @@ int main(int ac, char *av[])
 		buff_w = buff_split[0];
 		check_b = get_builtins(buff, buff_split, buff_w);
 		cmd = _which(buff_w);
-		/*printf("CMD = %s\n", cmd);*/
 		if ((cmd != NULL) && (_strcmp(cmd, buff_w) != 0))
 		{
 			buff_split[0] = NULL;

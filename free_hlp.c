@@ -74,7 +74,6 @@ void free_double(char **ptr)
  */
 void free_single(char *ptr)
 {
-	printf("%s\n", ptr);
 	if (ptr)
 		free(ptr);
 }

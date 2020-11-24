@@ -18,35 +18,29 @@
  *     \/  \/   |_|___/\__\___/|_| \_| |- Nov 2020 -|
  *
  */
-char **split_str(char *buffer, char *delim)
+char **split_str(char *str, char *delim)
 {
-	char *token = NULL, *buff_copy = NULL;
-/*	char *token2 = NULL;*/
-	int i = 0;
-	/*int words = 0, */
-	char **wordarray = malloc(sizeof(char *) * BSIZE);
+	char *token, *token2, *str2;
+	int words = 0, i = 0;
+	char **wordarray;
 
-	buff_copy = _strdup(buffer);
-	token = strtok(buff_copy, delim);
+	str2 = _strdup(str);
+	token = strtok(str, delim);
 	while (token)
 	{
-		wordarray[i] = token;
 		token = strtok(NULL, delim);
-		i++;
-		/*
-		token = strtok(NULL, delim);
-		words++;*/
+		words++;
 	}
-/*	token2 = strtok(buff_copy, delim);*/
-/*	wordarray = malloc(sizeof(char *) * (words + 1));*/
-/*	while (token2 != NULL)
+	token2 = strtok(str2, delim);
+
+	wordarray = malloc(sizeof(char *) * (words + 1));
+	while (token2 != NULL)
 	{
 		wordarray[i] = _strdup(token2);
 		token2 = strtok(NULL, delim);
 		i++;
-	}*/
+	}
 	wordarray[i] = NULL;
-	free_single(token);
-	free_single(buff_copy);
+	free(str2);
 	return (wordarray);
 }
