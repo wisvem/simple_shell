@@ -2,7 +2,7 @@
 
 /**
 * exec - executes applications
-* @argv: arguments to execute
+* @buff_splt: arguments to execute
 * @counter: counting of every command typed
 * @shellav: name of the first argument non interactive
 * Return: 0 on success
@@ -19,31 +19,30 @@
 *     \/  \/   |_|___/\__\___/|_| \_| |- Nov 2020 -|
 *
 */
-int exec(char **argv, unsigned int counter, char *shellav)
+int exec(char **buff_splt, unsigned int counter, char *shellav)
 {
 	pid_t child_pid;
 	int child_status, error_code;
 	char *path = NULL;
 	char *c_counter = NULL;
-	
+
 	(void)test;
-	if ((_which(argv[0])) == NULL)
+	if ((_which(buff_splt[0])) == NULL)
 	{
 		c_counter = itos(counter);
-		print_error(c_counter, argv[0], shellav);
-		free_double(argv);
+		print_error(c_counter, buff_splt[0], shellav);
 		free_single(c_counter);
 		return (127);
 	}
 	child_pid = fork();
 	if (child_pid == 0)
 	{
-		path = _which(argv[0]);
-		if ((execve(path, argv, environ) == -1) && argv[0] != NULL)
+		path = _which(buff_splt[0]);
+		if ((execve(path, buff_splt, environ) == -1) && buff_splt[0] != NULL)
 		{
 			c_counter = itos(counter);
-			execve(argv[0], argv, environ);
-			print_error(c_counter, argv[0], shellav);
+			execve(buff_splt[0], buff_splt, environ);
+			print_error(c_counter, buff_splt[0], shellav);
 			free_single(c_counter);
 			exit(errno);
 		}
@@ -55,6 +54,6 @@ int exec(char **argv, unsigned int counter, char *shellav)
 	wait(&child_status);
 	if (WIFEXITED(child_status))
 		error_code = WEXITSTATUS(child_status);
-	free_double(argv);
+	free_double(buff_splt);
 	return (error_code);
 }

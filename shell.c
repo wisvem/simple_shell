@@ -36,7 +36,7 @@ int main(int ac, char *av[])
 		buff[x - 1] = '\0';
 		buff_split = split_str(buff, " ");
 		buff_w = buff_split[0];
-		check_b = get_builtins(buff, buff_split, buff_w);
+		check_b = get_builtins(buff, buff_split, error_code);
 		cmd = _which(buff_w);
 		if ((cmd != NULL) && (_strcmp(cmd, buff_w) != 0))
 		{
@@ -47,6 +47,7 @@ int main(int ac, char *av[])
 		}
 		if (check_b != 0)
 			error_code = exec(buff_split, counter, av[0]);
+	
 		if (isatty(STDIN) != 0)
 			write(STDOUT, "\033[94maw$: \033[0m", 15);
 	}

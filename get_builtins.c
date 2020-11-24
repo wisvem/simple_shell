@@ -18,7 +18,7 @@
  *     \/  \/   |_|___/\__\___/|_| \_| |- Nov 2020 -|
  *
  */
-int get_builtins(char *buff, char **buff_split, char *buff_w)
+int get_builtins(char *buff, char **buff_split, int error_code)
 {
 	int (*f)();
 	unsigned int i, x;
@@ -39,7 +39,7 @@ int get_builtins(char *buff, char **buff_split, char *buff_w)
 		{
 			f = commands[i].function;
 			if (i == 0)
-				f(buff_split, buff, buff_w);
+				f(buff_split, buff, error_code);
 			f(buff_split);
 			return (0);
 		}

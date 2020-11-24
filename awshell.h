@@ -73,12 +73,12 @@ char *itos(unsigned int counter);
 /*Built-in functions*/
 
 int _env(char **ptr);
-int exitshell(char **buff_split, char *buff, char *buff_w);
+int exitshell(char **buff_split, char *buff, int error_code);
 int _setenv(char **ptr);
 int _unsetenv(char **ptr);
 int _setenv(char **ptr);
 int _help(char **ptr);
-int get_builtins(char *buff, char **buff_split, char *buff_w);
+int get_builtins(char *buff, char **buff_split, int error_code);
 
 /* list manipulation functions */
 p_list *path_list(void);
