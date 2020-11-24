@@ -48,9 +48,10 @@ typedef struct path_list
 	struct path_list *next;
 } p_list;
 
-void print_error(char *c_counter, char *argv0);
+void print_error(char *c_counter, char *argv0, char *shellav);
 /* freeing memory */
 void free_double(char **ptr);
+void free_single(char *ptr);
 
 
 /* string manipulation functions */
@@ -61,7 +62,7 @@ char *_strchr(char *s, char c);
 char *_strcat(char *dest, char *src);
 int _strlen(char *s);
 char *_memcpy(char *dest, char *src, unsigned int n);
-int exec(char **argv, unsigned int counter);
+int exec(char **argv, unsigned int counter, char *shellav);
 char *get_env(char *str);
 void ctrap(int signal);
 char *_which(char *excname);
