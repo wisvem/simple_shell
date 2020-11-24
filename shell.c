@@ -54,9 +54,11 @@ int main(int ac, char *av[])
 	if (isatty(STDIN) != 0)
 	{
 		write(STDOUT, "\n", 1);
-/*		foree(buff);
-		foree(buff_w);
-		foree_double(buff_split);*/
+/*
+*		foree(buff);
+*		foree(buff_w);
+*		foree_double(buff_split);
+*/
 	}
 	return (error_code);
 }

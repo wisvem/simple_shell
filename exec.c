@@ -4,6 +4,7 @@
 * exec - executes applications
 * @argv: arguments to execute
 * @counter: counting of every command typed
+* @shellav: name of the first argument non interactive
 * Return: 0 on success
 *                     _
 *     /\             | |

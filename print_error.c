@@ -4,6 +4,7 @@
 * print_error - executes applications
 * @argv0: name of the command
 * @c_counter: string counting of every command typed
+* @shellav: name of the first argument non interactive
 *                     _
 *     /\             | |
 *    /  \   _ __   __| |_   _
