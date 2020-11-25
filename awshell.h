@@ -51,6 +51,7 @@ typedef struct path_list
 } p_list;
 
 void print_error(char *c_counter, char *argv0, char *shellav);
+void print_error2(char *c_counter, char *argv0, char *shellav);
 /* freeing memory */
 void free_double(char **ptr);
 void free_single(char *ptr);
