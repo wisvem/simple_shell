@@ -26,8 +26,8 @@ int _env(char **ptr)
 	for (i = 0; environ[i]; i++)
 	{
 		_puts(environ[i]);
-		_putchar('\n');
 	}
+
 /*
 *	while (environ[i])
 *	{
