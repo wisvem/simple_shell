@@ -36,10 +36,9 @@ char *get_env(char *str)
 			res = _strdup(_strchr(copy2, '='));
 			free_single(copy2);
 		}
-		free_single(copy1);	
+		free_single(copy1);
 		free_double(temp);
 		i++;
 	}
-	
 	return (res);
 }
