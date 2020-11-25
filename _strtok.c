@@ -1,10 +1,9 @@
 #include "awshell.h"
 /**
- * strtok_w - tokenizer
- * @string: source string
- * @delim: delim character
- * @sptr: the remain of the array
- * Return: return a pointer to the first ocur +1
+ * _strtok - concatenates two strings
+ * @str: destiny string
+ * @delim: source string
+ * Return: a pointer to the next token, NULL if fails
  *                     _
  *     /\             | |
  *    /  \   _ __   __| |_   _
@@ -18,43 +17,47 @@
  *     \/  \/   |_|___/\__\___/|_| \_| |- Nov 2020 -|
  *
  */
-char *strtok_h(char *string, char *delim, char **sptr)
+char *_strtok(char *str, char *delim)
 {
-	char *end;
-	if (string == NULL)
-		string = *sptr;
-	if (*string == '\0')
+	static char *token;
+	char *r_string = NULL;
+	unsigned int i = 0, j, ctr = 0;
+
+	if (!delim || (!str && !token))
+		return (0);
+	if (str)
+		r_string = _strdup(str);
+	if (!str)
+		r_string = token;
+	while (r_string[i] == delim[0])
+		i++;
+	for (j = i; r_string[j]; j++)
 	{
-		*sptr = string;
-		return NULL;
+		if (r_string[j] == delim[0])
+		{
+			ctr = 1;
+			break;
+		}
 	}
-	/* Scan leading delimiters.  */
-	string = string + _strspn(string, delim);
-	if (*string == '\0')
+	for ( ; r_string[j]; j++)
+		if (r_string[j] != delim[0])
+			break;
+		else if (r_string[j + 1] == '\0')
+		{
+			r_string[j] = '\0';
+			ctr = 0;
+			break;
+		}
+		else
+			r_string[j] = '\0';
+	if (!ctr)
 	{
-		*sptr = string;
-		return NULL;
+		token = NULL;
+		return (r_string + i);
 	}
-	/* Find the end of the token.  */
-	end = string + strcspn(string, delim);
-	if (*end == '\0')
-	{
-		*sptr = end;
-		return string;
-	}
-	/* Terminate the token and make *sptr point past it.  */
-	*end = '\0';
-	*sptr = end + 1;
-	return string;
-}
-/*
- * _strtok - tokenizer
- * @string: source string
- * @delim: delim character
- * Return: return a pointer to the first ocur +1
- */
-char *_strtok(char *s, char *delim)
-{
-	static char *remain;
-	return strtok_h(s, delim, &remain);
+	if (*(r_string + j) != '\0')
+		token = r_string + j;
+	else
+		token = '\0';
+	return (r_string + i);
 }
