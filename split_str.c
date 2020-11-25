@@ -31,7 +31,7 @@ char **split_str(char *buff, char *delim)
 		token = _strtok(NULL, delim);
 		count++;
 	}
-	token2 = strtok(buff_copy, delim);
+	token2 = _strtok(buff_copy, delim);
 	wordarray = malloc(sizeof(char *) * (count + 1));
 	while (token2 != NULL)
 	{
