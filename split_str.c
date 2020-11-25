@@ -25,10 +25,10 @@ char **split_str(char *buff, char *delim)
 	char **wordarray;
 
 	buff_copy = _strdup(buff);
-	token = strtok(buff, delim);
+	token = _strtok(buff, delim);
 	while (token)
 	{
-		token = strtok(NULL, delim);
+		token = _strtok(NULL, delim);
 		count++;
 	}
 	token2 = strtok(buff_copy, delim);

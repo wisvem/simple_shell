@@ -69,6 +69,9 @@ char *get_env(char *str);
 void ctrap(int signal);
 char *_which(char *excname);
 char *itos(unsigned int counter);
+unsigned int _strspn(char *s, char *accept);
+char *_strtok(char *s, char *delim);
+char *strtok_h(char *string, char *delim, char **sptr);
 
 /*Built-in functions*/
 
