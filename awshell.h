@@ -70,7 +70,9 @@ void ctrap(int signal);
 char *_which(char *excname);
 char *itos(unsigned int counter);
 unsigned int _strspn(char *s, char *accept);
-char *_strtok(char *str, char *delim);
+unsigned int _strcspn(char *s, char *accept);
+char *_strtok(char *string, char *delim);
+char *strtok_h(char *string, char *delim, char **sptr);
 
 /*Built-in functions*/
 
