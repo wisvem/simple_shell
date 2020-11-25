@@ -33,11 +33,13 @@ char *get_env(char *str)
 		temp = split_str(copy1, "=");
 		if (_strcmp(temp[0], str) == 0)
 		{	copy2 = _strdup(environ[i]);
-			res = _strchr(copy2, '=');
+			res = _strdup(_strchr(copy2, '='));
+			free_single(copy2);
 		}
+		free_single(copy1);	
 		free_double(temp);
-		free(copy1);
 		i++;
 	}
+	
 	return (res);
 }

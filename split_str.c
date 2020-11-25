@@ -42,6 +42,8 @@ char **split_str(char *str, char *delim)
 		i++;
 	}
 	wordarray[i] = NULL;
-	free(str2);
+	free_single(token);
+	free_single(token2);
+	free_single(str2);
 	return (wordarray);
 }

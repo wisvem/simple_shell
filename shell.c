@@ -40,13 +40,17 @@ int main(int ac, char *av[])
 		cmd = _which(buff_w);
 		if ((cmd != NULL) && (_strcmp(cmd, buff_w) != 0))
 		{
-			buff_split[0] = NULL;
-			buff_split[0] = malloc(sizeof(char) * (_strlen(cmd) + 1));
+			free_single(buff_split[0]);
 			if (buff_split[0])
 				buff_split[0] = _strdup(cmd);
 		}
 		if (check_b != 0)
 			error_code = exec(buff_split, counter, av[0]);
+		else
+		{
+			free_double(buff_split);
+		}
+		free_single(cmd);
 		if (isatty(STDIN) != 0)
 			write(STDOUT, "$ ", 2);
 	}

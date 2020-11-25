@@ -48,6 +48,7 @@ p_list *path_list(void)
 		add_list(&head, entries[i]);
 		i++;
 	}
+	free_single(env_value);
 	free_double(entries);
 	return (head);
 }
