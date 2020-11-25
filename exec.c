@@ -29,12 +29,13 @@ int exec(char **buffer, unsigned int counter, char *shellav)
 	path = _which(buffer[0]);
 	if ((path == NULL) && buffer[0] != NULL)
 	{
-/*		free_single(path);*/
+		free_single(path);
 		c_counter = itos(counter);
 		print_error(c_counter, buffer[0], shellav);
 		free_single(c_counter);
 		return (127);
 	}
+	free_single(path);
 	child_pid = fork();
 	if (child_pid == 0)
 	{
@@ -43,7 +44,6 @@ int exec(char **buffer, unsigned int counter, char *shellav)
 			c_counter = itos(counter);
 			execve(buffer[0], buffer, environ);
 			print_error2(c_counter, buffer[0], shellav);
-/*			free_single(path);*/
 			free_single(c_counter), exit(errno);
 		}
 		else
