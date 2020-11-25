@@ -1,7 +1,7 @@
 #include "awshell.h"
 
 /**
- * split_str - separates strings into words
+ * split_str - separates strings into count
  * @str: string to divide
  * @delim: delimiter
  * Return: pointers to each word on the array
@@ -18,23 +18,22 @@
  *     \/  \/   |_|___/\__\___/|_| \_| |- Nov 2020 -|
  *
  */
-char **split_str(char *str, char *delim)
+char **split_str(char *buff, char *delim)
 {
-	char *token, *token2, *str2;
-	int words = 0, i = 0;
+	char *token, *token2, *buff_copy;
+	int count = 0, i = 0;
 	char **wordarray;
 
 	(void)test;
-	str2 = _strdup(str);
-	token = strtok(str, delim);
+	buff_copy = _strdup(buff);
+	token = strtok(buff, delim);
 	while (token)
 	{
 		token = strtok(NULL, delim);
-		words++;
+		count++;
 	}
-	token2 = strtok(str2, delim);
-
-	wordarray = malloc(sizeof(char *) * (words + 1));
+	token2 = strtok(buff_copy, delim);
+	wordarray = malloc(sizeof(char *) * (count + 1));
 	while (token2 != NULL)
 	{
 		wordarray[i] = _strdup(token2);
@@ -42,8 +41,6 @@ char **split_str(char *str, char *delim)
 		i++;
 	}
 	wordarray[i] = NULL;
-	free_single(token);
-	free_single(token2);
-	free_single(str2);
+	free_single(buff_copy);
 	return (wordarray);
 }

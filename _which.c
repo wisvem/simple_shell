@@ -2,7 +2,7 @@
 
 /**
  * _which - stat example
- * @excname: arguments
+ * @buff: arguments
  * Return: Always 0.
  *                     _
  *     /\             | |
@@ -17,7 +17,7 @@
  *     \/  \/   |_|___/\__\___/|_| \_| |- Nov 2020 -|
  *
  */
-char *_which(char *excname)
+char *_which(char *buff)
 {
 	struct stat st;
 	p_list *head = NULL, *copyhead = NULL;
@@ -25,11 +25,11 @@ char *_which(char *excname)
 	char *fullpath = NULL;
 
 	(void)test;
-	if (!excname || ((stat(excname, &st) == 0) && excname[0] == '/'))
-		return (excname);
+	if (!buff || ((stat(buff, &st) == 0) && buff[0] == '/'))
+		return (_strdup(buff));
 	head = path_list();
 	copyhead = head;
-	size1 = _strlen(excname);
+	size1 = _strlen(buff);
 	while (copyhead != NULL)
 	{
 		size2 = _strlen((*copyhead).str);
@@ -42,7 +42,7 @@ char *_which(char *excname)
 		}
 		_memcpy(fullpath, (*copyhead).str, size2);
 		_memcpy(fullpath + size2, "/", 1);
-		_memcpy(fullpath + size2 + 1, excname, size1 + 1);
+		_memcpy(fullpath + size2 + 1, buff, size1 + 1);
 		fullpath[totalsize + 2] = '\0';
 
 		if (stat(fullpath, &st) == 0)

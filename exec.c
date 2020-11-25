@@ -27,32 +27,40 @@ int exec(char **buffer, unsigned int counter, char *shellav)
 	char *c_counter = NULL;
 
 	(void)test;
-	if ((_which(buffer[0]) == NULL) && buffer[0] != NULL)
+	path = _which(buffer[0]);
+	if ((path == NULL) && buffer[0] != NULL)
 	{
+		free_single(path);
 		c_counter = itos(counter);
 		print_error(c_counter, buffer[0], shellav);
-		free_single(c_counter), free_double(buffer);
+		free_single(c_counter);
 		return (127);
 	}
 	child_pid = fork();
 	if (child_pid == 0)
 	{
-		path = _which(buffer[0]);
-		if ((execve(path, buffer, environ) == -1) && buffer[0] != NULL)
+		if (execve(buffer[0], buffer, environ) == -1)
 		{
+			/*
 			c_counter = itos(counter);
 			execve(buffer[0], buffer, environ);
 			print_error(c_counter, buffer[0], shellav);
+			free_single(path);
+			printf("entro\n");
 			free_single(c_counter), exit(errno);
+			*/
 		}
 		else
+		{
+			free_single(path);
 			exit(errno);
+		}
 	}
 	else if (child_pid < 0)
 		return (errno);
 	wait(&child_status);
 	if (WIFEXITED(child_status))
 		error_code = WEXITSTATUS(child_status);
-	free_double(buffer);
+/*	free_double(buffer);*/
 	return (error_code);
 }

@@ -46,15 +46,11 @@ int main(int ac, char *av[])
 		}
 		if (check_b != 0)
 			error_code = exec(buff_split, counter, av[0]);
-		else
-		{
-			free_double(buff_split);
-		}
+		free_double(buff_split);
 		free_single(cmd);
 		if (isatty(STDIN) != 0)
 			write(STDOUT, "$ ", 2);
 	}
-
 	if (isatty(STDIN) != 0)
 	{
 		write(STDOUT, "\n", 1);
