@@ -28,7 +28,7 @@ int main(int ac, char *av[])
 
 	(void)ac, (void)av, (void)test;
 	if (isatty(STDIN) != 0)
-		write(STDOUT, "\033[94maw$: \033[0m", 15);
+		write(STDOUT, "$ ", 2);
 	signal(SIGINT, ctrap);
 	while ((x = getline(&buff, &len, stdin)) != -1)
 	{
@@ -48,7 +48,7 @@ int main(int ac, char *av[])
 		if (check_b != 0)
 			error_code = exec(buff_split, counter, av[0]);
 		if (isatty(STDIN) != 0)
-			write(STDOUT, "\033[94maw$: \033[0m", 15);
+			write(STDOUT, "$ ", 2);
 	}
 
 	if (isatty(STDIN) != 0)
