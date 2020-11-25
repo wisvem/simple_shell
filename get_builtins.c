@@ -4,6 +4,7 @@
  * @buff: name of the environment var to get
  * @error_code: error code from previous execution
  * @buff_split: buffer tokenized
+ * @env: environment
  * Return: pointer to the function or NULL if it fails
  *                     _
  *     /\             | |
@@ -18,7 +19,7 @@
  *     \/  \/   |_|___/\__\___/|_| \_| |- Nov 2020 -|
  *
  */
-int get_builtins(char *buff, char **buff_split, int error_code)
+int get_builtins(char *buff, char **buff_split, int error_code, char **env)
 {
 	int (*f)();
 	unsigned int i, x;
@@ -39,7 +40,10 @@ int get_builtins(char *buff, char **buff_split, int error_code)
 			f = commands[i].function;
 			if (i == 0)
 				f(buff_split, buff, error_code);
-			f(buff_split);
+			else if (i == 1)
+				f(env);
+			else
+				f(buff_split);
 			return (0);
 		}
 	}
