@@ -23,14 +23,14 @@ int exec(char **buffer, unsigned int counter, char *shellav)
 {
 	pid_t child_pid;
 	int child_status, error_code;
-	char *path = NULL;
+/*	char *path = NULL;*/
 	char *c_counter = NULL;
 
 	(void)test;
-	path = _which(buffer[0]);
-	if ((path == NULL) && buffer[0] != NULL)
+/*	path = _which(buffer[0]);*/
+	if ((buffer[0] == NULL) && buffer[0] != NULL)
 	{
-		free_single(path);
+/*		free_single(path);*/
 		c_counter = itos(counter);
 		print_error(c_counter, buffer[0], shellav);
 		free_single(c_counter);
@@ -44,12 +44,12 @@ int exec(char **buffer, unsigned int counter, char *shellav)
 			c_counter = itos(counter);
 			execve(buffer[0], buffer, environ);
 			print_error2(c_counter, buffer[0], shellav);
-			free_single(path);
+/*			free_single(path);*/
 			free_single(c_counter), exit(errno);
 		}
 		else
 		{
-			free_single(path);
+/*			free_single(path);*/
 			exit(errno);
 		}
 	}
