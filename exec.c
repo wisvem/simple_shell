@@ -27,11 +27,11 @@ int exec(char **buff_splt, unsigned int counter, char *shellav)
 	char *c_counter = NULL;
 
 	(void)test;
-	if ((_which(buff_splt[0])) == NULL)
+	if ((_which(buff_splt[0]) == NULL) && buff_splt[0] != NULL)
 	{
 		c_counter = itos(counter);
 		print_error(c_counter, buff_splt[0], shellav);
-		free_single(c_counter);
+		free_single(c_counter), free_double(buff_splt);
 		return (127);
 	}
 	child_pid = fork();
@@ -43,8 +43,7 @@ int exec(char **buff_splt, unsigned int counter, char *shellav)
 			c_counter = itos(counter);
 			execve(buff_splt[0], buff_splt, environ);
 			print_error(c_counter, buff_splt[0], shellav);
-			free_single(c_counter);
-			exit(errno);
+			free_single(c_counter), exit(errno);
 		}
 		else
 			exit(errno);

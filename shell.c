@@ -47,7 +47,6 @@ int main(int ac, char *av[])
 		}
 		if (check_b != 0)
 			error_code = exec(buff_split, counter, av[0]);
-	
 		if (isatty(STDIN) != 0)
 			write(STDOUT, "\033[94maw$: \033[0m", 15);
 	}
@@ -55,11 +54,6 @@ int main(int ac, char *av[])
 	if (isatty(STDIN) != 0)
 	{
 		write(STDOUT, "\n", 1);
-/*
-*		foree(buff);
-*		foree(buff_w);
-*		foree_double(buff_split);
-*/
 	}
 	return (error_code);
 }

@@ -37,7 +37,7 @@ int _env(char **ptr)
 /**
  * exitshell - exits the shell
  * @buff: name of the environment var to free
- * @buff_w: copy name of the environment var to free
+ * @error_code: error code from previuos execution
  * @buff_split: buffer tokenized to free
  * Return: Always 0.
  *                     _

@@ -2,7 +2,7 @@
 /**
  * get_builtins - checks if the input command is a builtin
  * @buff: name of the environment var to get
- * @buff_w: copy name of the environment var to get
+ * @error_code: error code from previous execution
  * @buff_split: buffer tokenized
  * Return: pointer to the function or NULL if it fails
  *                     _
