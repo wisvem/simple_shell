@@ -36,7 +36,7 @@ char **split_str(char *buff, char *delim)
 	while (token2 != NULL)
 	{
 		wordarray[i] = _strdup(token2);
-		token2 = strtok(NULL, delim);
+		token2 = _strtok(NULL, delim);
 		i++;
 	}
 	wordarray[i] = NULL;
