@@ -26,7 +26,7 @@ int main(int ac, char *av[])
 	size_t len = 0, counter = 0;
 	int x = 0, check_b, error_code = 0;
 
-	(void)ac, (void)av, (void)test;
+	(void)ac, (void)av;
 	if (isatty(STDIN) != 0)
 		write(STDOUT, "$ ", 2);
 	signal(SIGINT, ctrap);

@@ -24,9 +24,8 @@ char *get_env(char *str)
 	char *copy1 = NULL;
 	char **temp = NULL, *res = NULL;
 	char *copy2 = NULL;
-	(void)str;
-	(void)test;
 
+	(void)str;
 	while (environ[i] != NULL)
 	{
 		copy1 = _strdup(environ[i]);

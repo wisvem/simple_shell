@@ -26,7 +26,6 @@ int exec(char **buffer, unsigned int counter, char *shellav)
 /*	char *path = NULL;*/
 	char *c_counter = NULL;
 
-	(void)test;
 /*	path = _which(buffer[0]);*/
 	if ((buffer[0] == NULL) && buffer[0] != NULL)
 	{

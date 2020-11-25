@@ -10,7 +10,6 @@ char *_strcat(char *dest, char *src)
 {
 	int sizedest = 0, sizesrc = 0;
 
-	(void)test;
 	while (dest[sizedest] != '\0')
 	{
 		sizedest++;

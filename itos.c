@@ -23,7 +23,6 @@ char *itos(unsigned int counter)
 	char *numstr;
 	unsigned int tmp, digits;
 
-	(void)test;
 	tmp = counter;
 	for (digits = 0; tmp != 0; digits++)
 		tmp /= 10;

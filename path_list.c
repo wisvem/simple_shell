@@ -24,7 +24,6 @@ p_list *path_list(void)
 	int i = 0, size_path;
 	p_list *head = NULL;
 
-	(void)test;
 	env_value = get_env(PATH);
 	if (env_value[0] == ':')
 	{

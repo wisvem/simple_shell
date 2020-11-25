@@ -1,7 +1,7 @@
 #include "awshell.h"
 
 /**
-* print_error - executes applications
+* print_error - prints argument error
 * @argv0: name of the command
 * @c_counter: string counting of every command typed
 * @shellav: name of the first argument non interactive
@@ -20,7 +20,6 @@
 */
 void print_error(char *c_counter, char *argv0, char *shellav)
 {
-	(void)test;
 	write(STDERR, shellav, _strlen(shellav));
 	write(STDERR, ": ", 2);
 	write(STDERR, c_counter, _strlen(c_counter));
@@ -29,7 +28,7 @@ void print_error(char *c_counter, char *argv0, char *shellav)
 	write(STDERR, ": not found\n", 12);
 }
 /**
-* print_error - executes applications
+* print_error2 - prints system error
 * @argv0: name of the command
 * @c_counter: string counting of every command typed
 * @shellav: name of the first argument non interactive
@@ -48,7 +47,6 @@ void print_error(char *c_counter, char *argv0, char *shellav)
 */
 void print_error2(char *c_counter, char *argv0, char *shellav)
 {
-	(void)test;
 	write(STDERR, shellav, _strlen(shellav));
 	write(STDERR, ": ", 2);
 	write(STDERR, c_counter, _strlen(c_counter));

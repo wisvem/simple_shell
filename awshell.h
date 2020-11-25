@@ -24,7 +24,6 @@
 
 /* extern call for env var */
 extern char **environ;
-static int test;
 
 /**
  * struct builtins - struct with type to find builtins and function to use

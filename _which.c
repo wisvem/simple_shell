@@ -24,7 +24,6 @@ char *_which(char *buff)
 	unsigned int totalsize = 0, size1 = 0, size2 = 0;
 	char *fullpath = NULL;
 
-	(void)test;
 	if (!buff || ((stat(buff, &st) == 0) && buff[0] == '/'))
 		return (_strdup(buff));
 	head = path_list();

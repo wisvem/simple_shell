@@ -2,7 +2,7 @@
 
 /**
  * split_str - separates strings into count
- * @str: string to divide
+ * @buff: string to divide
  * @delim: delimiter
  * Return: pointers to each word on the array
  *                     _
@@ -24,7 +24,6 @@ char **split_str(char *buff, char *delim)
 	int count = 0, i = 0;
 	char **wordarray;
 
-	(void)test;
 	buff_copy = _strdup(buff);
 	token = strtok(buff, delim);
 	while (token)
