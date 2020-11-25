@@ -25,18 +25,18 @@ char **split_str(char *buff, char *delim)
 	char **wordarray;
 
 	buff_copy = _strdup(buff);
-	token = _strtok(buff, delim);
+	token = strtok(buff, delim);
 	while (token)
 	{
-		token = _strtok(NULL, delim);
+		token = strtok(NULL, delim);
 		count++;
 	}
-	token2 = _strtok(buff_copy, delim);
+	token2 = strtok(buff_copy, delim);
 	wordarray = malloc(sizeof(char *) * (count + 1));
 	while (token2 != NULL)
 	{
 		wordarray[i] = _strdup(token2);
-		token2 = _strtok(NULL, delim);
+		token2 = strtok(NULL, delim);
 		i++;
 	}
 	wordarray[i] = NULL;
