@@ -23,11 +23,11 @@ int exec(char **buffer, unsigned int counter, char *shellav)
 {
 	pid_t child_pid;
 	int child_status, error_code;
-/*	char *path = NULL;*/
+	char *path = NULL;
 	char *c_counter = NULL;
 
-/*	path = _which(buffer[0]);*/
-	if ((buffer[0] == NULL) && buffer[0] != NULL)
+	path = _which(buffer[0]);
+	if ((path == NULL) && buffer[0] != NULL)
 	{
 /*		free_single(path);*/
 		c_counter = itos(counter);
@@ -48,7 +48,6 @@ int exec(char **buffer, unsigned int counter, char *shellav)
 		}
 		else
 		{
-/*			free_single(path);*/
 			exit(errno);
 		}
 	}
@@ -57,6 +56,5 @@ int exec(char **buffer, unsigned int counter, char *shellav)
 	wait(&child_status);
 	if (WIFEXITED(child_status))
 		error_code = WEXITSTATUS(child_status);
-/*	free_double(buffer);*/
 	return (error_code);
 }

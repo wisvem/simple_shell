@@ -44,7 +44,7 @@ int main(int ac, char *av[])
 			if (buff_split[0])
 				buff_split[0] = _strdup(cmd);
 		}
-		if (check_b != 0)
+		if (check_b != 0 && buff_w != NULL)
 			error_code = exec(buff_split, counter, av[0]);
 		free_double(buff_split);
 		free_single(cmd);
@@ -55,5 +55,6 @@ int main(int ac, char *av[])
 	{
 		write(STDOUT, "\n", 1);
 	}
+	free_single(buff);
 	return (error_code);
 }
