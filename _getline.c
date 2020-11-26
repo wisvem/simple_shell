@@ -8,5 +8,6 @@
  */
 int _getline(char **lineptr, size_t *n, FILE *stream)
 {
-	return (getline(lineptr, n, stream));
+	(void)lineptr, (void)n, (void)stream;
+	return (0);
 }

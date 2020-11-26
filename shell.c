@@ -31,7 +31,7 @@ int main(int ac, char *av[], char **env)
 	if (isatty(STDIN) != 0)
 		write(STDOUT, "$ ", 2);
 	signal(SIGINT, ctrap);
-	while ((x = _getline(&buff, &len, stdin)) != -1)
+	while ((x = getline(&buff, &len, stdin)) != -1)
 	{
 		counter++;
 		buff[x - 1] = '\0';

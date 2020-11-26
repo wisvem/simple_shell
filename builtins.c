@@ -25,8 +25,7 @@ int _env(char **env)
 	{
 		_puts(env[i]);
 	}
-
-/*
+	/*
 *	while (environ[i])
 *	{
 *		size = _strlen(environ[i]);
@@ -64,7 +63,7 @@ int exitshell(char **buff_split, char *buff, int error_code)
 
 	free_double(buff_split);
 	free_single(buff);
-/*
+	/*
 *	free_single(buff);
 *	free_double(buff_split);
 */
@@ -116,7 +115,6 @@ int _unsetenv(char **ptr)
 	(void)ptr;
 	return (0);
 }
-
 
 /**
  * _help - exits the shell
