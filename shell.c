@@ -22,7 +22,7 @@
 int main(int ac, char *av[])
 {
 	char *buff = NULL, *buff_w = NULL, **buff_split = NULL;
-	char *cmd;
+	char *cmd = NULL;
 	size_t len = 0, counter = 0;
 	int x = 0, check_b, error_code = 0;
 
@@ -46,6 +46,8 @@ int main(int ac, char *av[])
 		}
 		if (check_b != 0 && buff_w != NULL)
 			error_code = exec(buff_split, counter, av[0]);
+		if (check_b == 0)
+			error_code = 0;
 		free_double(buff_split);
 		free_single(cmd);
 		if (isatty(STDIN) != 0)
