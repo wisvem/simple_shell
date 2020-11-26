@@ -31,7 +31,7 @@ int exec(char **buffer, unsigned int counter, char *shellav)
 	{
 		free_single(path);
 		c_counter = itos(counter);
-		print_error(c_counter, buffer[0], shellav);
+		print_error2(c_counter, buffer[0], shellav);
 		free_single(c_counter);
 		return (127);
 	}
@@ -42,7 +42,7 @@ int exec(char **buffer, unsigned int counter, char *shellav)
 		if (execve(buffer[0], buffer, environ) == -1)
 		{
 			c_counter = itos(counter);
-			execve(buffer[0], buffer, environ);
+/*			execve(buffer[0], buffer, environ);*/
 			print_error2(c_counter, buffer[0], shellav);
 			free_single(c_counter), exit(errno);
 		}

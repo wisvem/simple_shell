@@ -1,7 +1,7 @@
 #include "awshell.h"
 
 /**
- * _which - stat example
+ * _which - creates a full path for a command
  * @buff: arguments
  * Return: Always 0.
  *                     _
@@ -24,7 +24,7 @@ char *_which(char *buff)
 	unsigned int totalsize = 0, size1 = 0, size2 = 0;
 	char *fullpath = NULL;
 
-	if (!buff || ((stat(buff, &st) == 0) && buff[0] == '/'))
+	if (buff == NULL || stat(buff, &st) == 0 || buff[0] == '/')
 		return (_strdup(buff));
 	head = path_list();
 	copyhead = head;

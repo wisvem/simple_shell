@@ -4,7 +4,8 @@
  * main - prints "aw$ ", wait for the user to enter a command,
  * to execute different programs.
  * @ac: number of arguments.
- * @av: arguments.
+ * @av: arguments
+ * @env: environment
  * Return: Always 0
  *                     _
  *     /\             | |
@@ -19,7 +20,7 @@
  *     \/  \/   |_|___/\__\___/|_| \_| |- Nov 2020 -|
  *
  */
-int main(int ac, char *av[])
+int main(int ac, char *av[], char **env)
 {
 	char *buff = NULL, *buff_w = NULL, **buff_split = NULL;
 	char *cmd;
@@ -36,7 +37,7 @@ int main(int ac, char *av[])
 		buff[x - 1] = '\0';
 		buff_split = split_str(buff, " ");
 		buff_w = buff_split[0];
-		check_b = get_builtins(buff, buff_split, error_code);
+		check_b = get_builtins(buff, buff_split, error_code, env);
 		cmd = _which(buff_w);
 		if ((cmd != NULL) && (_strcmp(cmd, buff_w) != 0))
 		{

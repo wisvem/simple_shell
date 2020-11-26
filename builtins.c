@@ -2,7 +2,7 @@
 
 /**
  * _env - prints the environment
- * @ptr: buffer tokenized to free
+ * @env: environment
  * Return: Always 0.
  *                     _
  *     /\             | |
@@ -17,19 +17,25 @@
  *     \/  \/   |_|___/\__\___/|_| \_| |- Nov 2020 -|
  *
  */
-int _env(char **ptr)
+int _env(char **env)
 {
-	unsigned int i = 0, size = 0;
+	unsigned int i;
 
-	(void)ptr;
-	while (environ[i])
+	for (i = 0; env[i]; i++)
 	{
-		size = _strlen(environ[i]);
-		write(STDOUT, environ[i], size);
-		write(STDOUT, "\n", 1);
-		i++;
+		_puts(env[i]);
 	}
-	return (0);
+
+/*
+*	while (environ[i])
+*	{
+*		size = _strlen(environ[i]);
+*		write(STDOUT, environ[i], size);
+*		write(STDOUT, "\n", 1);
+*		i++;
+*	}
+*/
+	return (EXIT_SUCCESS);
 }
 
 /**

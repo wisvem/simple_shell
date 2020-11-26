@@ -49,8 +49,12 @@ typedef struct path_list
 	struct path_list *next;
 } p_list;
 
+/*print helpers*/
 void print_error(char *c_counter, char *argv0, char *shellav);
 void print_error2(char *c_counter, char *argv0, char *shellav);
+int _putchar(char c);
+void _puts(char *str);
+
 /* freeing memory */
 void free_double(char **ptr);
 void free_single(char *ptr);
@@ -70,7 +74,9 @@ void ctrap(int signal);
 char *_which(char *excname);
 char *itos(unsigned int counter);
 unsigned int _strspn(char *s, char *accept);
-char *_strtok(char *str, char *delim);
+unsigned int _strcspn(char *s, char *accept);
+char *_strtok(char *string, char *delim);
+char *strtok_h(char *string, char *delim, char **sptr);
 
 /*Built-in functions*/
 
@@ -80,7 +86,7 @@ int _setenv(char **ptr);
 int _unsetenv(char **ptr);
 int _setenv(char **ptr);
 int _help(char **ptr);
-int get_builtins(char *buff, char **buff_split, int error_code);
+int get_builtins(char *buff, char **buff_split, int error_code, char **env);
 
 /* list manipulation functions */
 p_list *path_list(void);
