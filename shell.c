@@ -5,7 +5,6 @@
  * to execute different programs.
  * @ac: number of arguments.
  * @av: arguments
- * @env: environment
  * Return: Always 0
  *                     _
  *     /\             | |

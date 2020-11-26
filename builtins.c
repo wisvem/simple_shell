@@ -2,7 +2,7 @@
 
 /**
  * _env - prints the environment
- * @env: environment
+ * @ptr: environment
  * Return: Always 0.
  *                     _
  *     /\             | |

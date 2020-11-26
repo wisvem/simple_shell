@@ -4,7 +4,6 @@
  * @buff: name of the environment var to get
  * @error_code: error code from previous execution
  * @buff_split: buffer tokenized
- * @env: environment
  * Return: pointer to the function or NULL if it fails
  *                     _
  *     /\             | |
