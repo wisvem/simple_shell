@@ -77,7 +77,7 @@ unsigned int _strspn(char *s, char *accept);
 unsigned int _strcspn(char *s, char *accept);
 char *_strtok(char *string, char *delim);
 char *strtok_h(char *string, char *delim, char **sptr);
-
+int _getline(char **lineptr, size_t *n, FILE *stream);
 /*Built-in functions*/
 
 int _env(char **ptr);
