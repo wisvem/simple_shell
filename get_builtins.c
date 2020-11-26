@@ -39,8 +39,6 @@ int get_builtins(char *buff, char **buff_split, int error_code)
 			f = commands[i].function;
 			if (i == 0)
 				f(buff_split, buff, error_code);
-			else if (i == 1)
-				_env(buff_split);
 			else
 				f(buff_split);
 			return (0);

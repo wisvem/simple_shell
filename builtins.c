@@ -2,7 +2,7 @@
 
 /**
  * _env - prints the environment
- * @ptr: environment
+ * @env: environment
  * Return: Always 0.
  *                     _
  *     /\             | |
@@ -19,15 +19,17 @@
  */
 int _env(char **ptr)
 {
-	unsigned int i;
-	(void)ptr;
+	unsigned int i = 0, size = 0;
 
+	(void)ptr;
 	while (environ[i])
 	{
-		_puts(environ[i]);
+		size = _strlen(environ[i]);
+		write(STDOUT, environ[i], size);
+		write(STDOUT, "\n", 1);
 		i++;
 	}
-	return (EXIT_SUCCESS);
+	return (0);
 }
 
 /**
