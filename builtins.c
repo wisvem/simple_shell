@@ -20,20 +20,19 @@
 int _env(char **env)
 {
 	unsigned int i;
+	(void)env;
 
-	for (i = 0; env[i]; i++)
-	{
-		_puts(env[i]);
-	}
-	/*
-*	while (environ[i])
+/*
+*	for (i = 0; env[i]; i++)
 *	{
-*		size = _strlen(environ[i]);
-*		write(STDOUT, environ[i], size);
-*		write(STDOUT, "\n", 1);
-*		i++;
+*		_puts(env[i]);
 *	}
 */
+	while (environ[i])
+	{
+		_puts(environ[i]);
+		i++;
+	}
 	return (EXIT_SUCCESS);
 }
 
