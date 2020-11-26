@@ -86,7 +86,7 @@ int _setenv(char **ptr);
 int _unsetenv(char **ptr);
 int _setenv(char **ptr);
 int _help(char **ptr);
-int get_builtins(char *buff, char **buff_split, int error_code, char **env);
+int get_builtins(char *buff, char **buff_split, int error_code);
 
 /* list manipulation functions */
 p_list *path_list(void);

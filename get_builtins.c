@@ -19,7 +19,7 @@
  *     \/  \/   |_|___/\__\___/|_| \_| |- Nov 2020 -|
  *
  */
-int get_builtins(char *buff, char **buff_split, int error_code, char **env)
+int get_builtins(char *buff, char **buff_split, int error_code)
 {
 	int (*f)();
 	unsigned int i, x;
@@ -41,7 +41,7 @@ int get_builtins(char *buff, char **buff_split, int error_code, char **env)
 			if (i == 0)
 				f(buff_split, buff, error_code);
 			else if (i == 1)
-				_env(env);
+				_env(buff_split);
 			else
 				f(buff_split);
 			return (0);

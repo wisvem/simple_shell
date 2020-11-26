@@ -17,17 +17,11 @@
  *     \/  \/   |_|___/\__\___/|_| \_| |- Nov 2020 -|
  *
  */
-int _env(char **env)
+int _env(char **ptr)
 {
 	unsigned int i;
-	(void)env;
+	(void)ptr;
 
-/*
-*	for (i = 0; env[i]; i++)
-*	{
-*		_puts(env[i]);
-*	}
-*/
 	while (environ[i])
 	{
 		_puts(environ[i]);

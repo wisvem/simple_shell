@@ -20,7 +20,7 @@
  *     \/  \/   |_|___/\__\___/|_| \_| |- Nov 2020 -|
  *
  */
-int main(int ac, char *av[], char **env)
+int main(int ac, char *av[])
 {
 	char *buff = NULL, *buff_w = NULL, **buff_split = NULL;
 	char *cmd;
@@ -37,7 +37,7 @@ int main(int ac, char *av[], char **env)
 		buff[x - 1] = '\0';
 		buff_split = split_str(buff, " ");
 		buff_w = buff_split[0];
-		check_b = get_builtins(buff, buff_split, error_code, env);
+		check_b = get_builtins(buff, buff_split, error_code);
 		cmd = _which(buff_w);
 		if ((cmd != NULL) && (_strcmp(cmd, buff_w) != 0))
 		{
