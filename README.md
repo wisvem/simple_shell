@@ -4,6 +4,7 @@
 simple_shell is a command line interpreter, or shell, in the tradition of the first Unix shell written by Ken Thompson in 1971. This shell is intentionally minimalistic, yet includes the basic functionality of a traditional Unix-like command line user interface.
 Standard functions and system calls employed in simple_shell include:
    `access, execve, exit, fork, free, fstat, getline, malloc, perror, signal, stat, wait, write.`
+![](https://i.imgur.com/hQ0kYLY.png)
 
 ### Environment
 `simple_shell` has been tested on Ubuntu 14.04.6 and 18.04.3 LTS
@@ -15,8 +16,8 @@ Done and tested with VirtualBox on Ubuntu via Vagrant(2.2.10)
 
 
 ### Main Functionality
-- [ ] uses the PATH
-- [ ] implements builtins
+- [X] uses the PATH
+- [X] implements builtins
 - [X] handles command line arguments
 - [ ] custom strtok function
 - [ ] uses exit status
@@ -30,8 +31,8 @@ Done and tested with VirtualBox on Ubuntu via Vagrant(2.2.10)
 
 ### Builtins
 
-- [ ] exit
-- [ ] env
+- [X] exit
+- [X] env
 - [ ] setenv
 - [ ] unsetenv
 - [ ] cd
