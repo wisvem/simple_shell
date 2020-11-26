@@ -1,7 +1,7 @@
 #include "awshell.h"
 
 /**
- * _which - stat example
+ * _which - creates a full path for a command
  * @buff: arguments
  * Return: Always 0.
  *                     _

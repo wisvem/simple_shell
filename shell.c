@@ -4,7 +4,8 @@
  * main - prints "aw$ ", wait for the user to enter a command,
  * to execute different programs.
  * @ac: number of arguments.
- * @av: arguments.
+ * @av: arguments
+ * @env: environment
  * Return: Always 0
  *                     _
  *     /\             | |
